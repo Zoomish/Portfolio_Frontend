@@ -33,13 +33,13 @@ const Autorization: FC<IAutorization> = ({ setIsLoggedIn, t, setToken }) => {
               setIsLoggedIn(true)
               if (storedInitialRoute) {
                 if (storedInitialRoute === '/') {
-                  history.push('/super_admin/restaurants')
+                  history.push('/portfoilo/restaurants')
                 } else {
                   history.push(storedInitialRoute)
                   localStorage.removeItem('initialRoute')
                 }
               } else {
-                history.push('/super_admin/restaurants')
+                history.push('/portfoilo/restaurants')
               }
             } else {
               setIsLoggedIn(true)
@@ -47,7 +47,7 @@ const Autorization: FC<IAutorization> = ({ setIsLoggedIn, t, setToken }) => {
                 history.push(storedInitialRoute)
                 localStorage.removeItem('initialRoute')
               } else {
-                history.push('/super_admin/restaurants')
+                history.push('/portfoilo/restaurants')
               }
             }
           }
@@ -69,14 +69,14 @@ const Autorization: FC<IAutorization> = ({ setIsLoggedIn, t, setToken }) => {
             history.push(storedInitialRoute)
             /* if (storedInitialRoute === '/') {
                 history.push(
-                  window.localStorage.getItem('initialRoute') ?? '/super_admin/admins'
+                  window.localStorage.getItem('initialRoute') ?? '/portfoilo/admins'
                 )
               } else {
                 history.push(storedInitialRoute)
                 localStorage.removeItem('initialRoute')
               } */
           } else {
-            history.push('/super_admin/restaurants')
+            history.push('/portfoilo/restaurants')
           }
         })
         .catch((e) => openNotification(e, 'topRight'))
@@ -91,7 +91,7 @@ const Autorization: FC<IAutorization> = ({ setIsLoggedIn, t, setToken }) => {
             history.push(storedInitialRoute)
             localStorage.removeItem('initialRoute')
           } else {
-            history.push('/super_admin/restaurants')
+            history.push('/portfoilo/restaurants')
           }
         })
         .catch((e) => openNotification(e, 'topRight'))
