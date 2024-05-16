@@ -1,14 +1,12 @@
 import React, { FC } from 'react'
 import { ECountry } from '../../utils/typesFromBackend'
+import { Select } from 'antd'
 
 interface IChangeLanguage {
   t: (arg0: string) => string
   changeLanguage: (lng: ECountry) => void
 }
-const ChoiseLanguage: FC<IChangeLanguage> = ({
-  t,
-  changeLanguage
-}) => {
+const ChoiseLanguage: FC<IChangeLanguage> = ({ t, changeLanguage }) => {
   const [selectedOption, setSelectedOption] = React.useState('')
   const restData = Object.keys(ECountry)
 
@@ -19,36 +17,36 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({
       Object.values(ECountry).includes(storedLanguage as ECountry)
     ) {
       setSelectedOption(storedLanguage)
+      document.documentElement.setAttribute('lang', storedLanguage.toLocaleLowerCase())
       changeLanguage(storedLanguage as ECountry)
     }
   }, [])
-  const onFinish = (values: any): void => {
+  const onFinish = (values: string): void => {
     setSelectedOption(values)
-    changeLanguage(values)
+    document.documentElement.setAttribute('lang', values.toLocaleLowerCase())
+    changeLanguage(values as ECountry)
     localStorage.setItem('language', values)
   }
 
   return (
     <>
-      {restData && Array.isArray(restData)
-        ? (
+      {restData && Array.isArray(restData) ? (
         <>
-          <select
+          <Select
             id='my-select'
             value={selectedOption}
-            onChange={(e) => onFinish(e.target.value)}
+            onChange={(e) => onFinish(e)}
           >
             {restData.map((country) => (
-              <option key={country} value={country}>
+              <Select.Option key={country} value={country}>
                 {country}
-              </option>
+              </Select.Option>
             ))}
-          </select>
+          </Select>
         </>
-          )
-        : (
-            ''
-          )}
+      ) : (
+        ''
+      )}
     </>
   )
 }
