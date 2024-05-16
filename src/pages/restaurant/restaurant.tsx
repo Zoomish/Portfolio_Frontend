@@ -97,7 +97,6 @@ const Restaurant: FC<IRest> = ({ t, pathRest, language }) => {
       {isRest ? (
         value === t('menu') ? (
           <EditorRestMenu
-            pathRest={pathRest}
             t={t}
           ></EditorRestMenu>
         ) : (
