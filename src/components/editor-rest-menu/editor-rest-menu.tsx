@@ -9,12 +9,10 @@ import { InboxOutlined } from '@ant-design/icons'
 const { Dragger } = Upload
 
 interface IEditorRest {
-  token: string
   t: (arg0: string) => string
-  pathRest: string
 }
 
-const EditorRestMenu: FC<IEditorRest> = ({ token, pathRest, t }) => {
+const EditorRestMenu: FC<IEditorRest> = ({ t }) => {
   const { openNotification } = useContext(NotificationContext)
   // eslint-disable-next-line prefer-regex-literals
   // const { restId } = useParams<{ restId: string }>()
@@ -27,7 +25,7 @@ const EditorRestMenu: FC<IEditorRest> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     restaurantAPI
-      .getRestaurant(token, restId)
+      .getRestaurant('token', restId)
       .then((res) => {
         setDish(res)
       })
@@ -47,7 +45,7 @@ const EditorRestMenu: FC<IEditorRest> = ({ token, pathRest, t }) => {
       const formData = new FormData()
       formData.append('file', file)
       restaurantAPI
-        .importMenu(token, formData, rest.pathRest)
+        .importMenu('token', formData, rest.pathRest)
         .then((res) => {
           openNotification(t('menu-uploaded'), 'topRight')
         })
