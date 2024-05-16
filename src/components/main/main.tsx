@@ -12,10 +12,10 @@ import { NotificationProvider } from '../notification-provider/notification-prov
 import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
-import Restaurants from '../../pages/hello/hello'
 import Restaurant from '../../pages/restaurant/restaurant'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
+import Hello from '../../pages/hello/hello'
 
 const { Header, Sider, Content } = Layout
 
@@ -140,7 +140,7 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                   path={`/:${pathRest}/restaurants`}
                   exact
                 >
-                  <Restaurants
+                  <Hello
                     token={token}
                     pathRest={pathRest}
                     t={t}
