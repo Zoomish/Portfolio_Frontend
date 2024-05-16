@@ -9,8 +9,7 @@ const App: FC = () => {
   const pathRest = 'super_admin'
   const history = useHistory()
   if (
-    history.location.pathname !== '/super_admin' &&
-    history.location.pathname !== '/super_admin/autorization'
+    history.location.pathname !== '/super_admin'
   ) {
     localStorage.setItem('initialRoute', history.location.pathname)
   }
