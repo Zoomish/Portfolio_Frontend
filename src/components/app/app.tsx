@@ -23,16 +23,16 @@ const App: FC = () => {
     <div className='App'>
       <Switch>
         <Route path='/' exact={true}>
-          <Redirect to={{ pathname: `/${pathRest}/autorization` }} />
+          <Redirect to={{ pathname: `/${pathRest}/main` }} />
         </Route>
-        <Route path={`/${pathRest}/autorization`} exact={true}>
+        <Route path={`/${pathRest}/main`} exact={true}>
           <Main token={token} pathRest={pathRest} setToken={setToken} />
         </Route>
         <Route path={'/portfoilo'} exact>
-          <Redirect to={`/${pathRest}/autorization`} />
+          <Redirect to={`/${pathRest}/main`} />
         </Route>
         <Route path={'*'} exact>
-          <Redirect to={`/${pathRest}/autorization`} />
+          <Redirect to={`/${pathRest}/main`} />
         </Route>
       </Switch>
     </div>
