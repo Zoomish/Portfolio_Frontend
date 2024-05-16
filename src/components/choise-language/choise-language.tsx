@@ -31,13 +31,10 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({
       changeLanguage(storedLanguage as ECountry)
     }
   }, [])
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const onFinish = (values: any) => {
+  const onFinish = (values: any): void => {
     setSelectedOption(values)
     changeLanguage(values)
     localStorage.setItem('language', values)
-    localStorage.removeItem('formDataDish')
   }
 
   return (

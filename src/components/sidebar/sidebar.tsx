@@ -8,7 +8,7 @@ interface ISidebar {
   setIsLoggedIn: Dispatch<SetStateAction<boolean>>
   t: (arg0: string) => string
 }
-const Sidebar: FC<ISidebar> = ({ setIsLoggedIn, pathRest, t }) => {
+const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
   const history = useHistory()
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
