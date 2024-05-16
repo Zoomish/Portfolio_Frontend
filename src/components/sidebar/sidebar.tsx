@@ -1,12 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import { Menu } from 'antd'
-import {
-  InfoCircleOutlined,
-  LogoutOutlined,
-  ContainerOutlined,
-  UserOutlined,
-  VerticalAlignTopOutlined
-} from '@ant-design/icons'
+import { ContainerOutlined, UserOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
 interface ISidebar {
@@ -27,18 +21,6 @@ const Sidebar: FC<ISidebar> = ({ setIsLoggedIn, pathRest, t }) => {
   const handleAdminsClick = (): void => {
     history.push(`/${pathRest}/admins`)
   }
-  const handleInstructionClick = (): void => {
-    history.push('/blog')
-  }
-  const handleRestClick = (): void => {
-    // выход в меню
-  }
-
-  const handleLogout = (): void => {
-    localStorage.removeItem('token')
-    setIsLoggedIn(false)
-    history.push(`/${pathRest}/autorization`)
-  }
 
   return (
     <>
@@ -56,18 +38,6 @@ const Sidebar: FC<ISidebar> = ({ setIsLoggedIn, pathRest, t }) => {
         <Menu.Item key='2' onClick={handleAdminsClick}>
           <UserOutlined />
           <span>{t('admins')}</span>
-        </Menu.Item>
-        <Menu.Item key='3' onClick={handleInstructionClick}>
-          <InfoCircleOutlined />
-          <span>{t('manual')}</span>
-        </Menu.Item>
-        <Menu.Item key='4' onClick={handleRestClick}>
-          <VerticalAlignTopOutlined />
-          <span> {t('back-menu')}</span>
-        </Menu.Item>
-        <Menu.Item key='5' onClick={handleLogout}>
-          <LogoutOutlined />
-          <span>{t('quit')}</span>
         </Menu.Item>
       </Menu>
     </>
