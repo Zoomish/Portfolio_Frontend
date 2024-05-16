@@ -14,13 +14,12 @@ interface InameTariffs {
 }
 
 interface IMenu {
-  token: string
   pathRest: string
   t: (arg0: string) => string
   language: ECountry
 }
 
-const Hello: FC<IMenu> = ({ token, pathRest, t }) => {
+const Hello: FC<IMenu> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
 
   const [data, setData] = React.useState<TRest[]>([])
@@ -29,7 +28,7 @@ const Hello: FC<IMenu> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     restaurantAPI
-      .getRestaurants(token)
+      .getRestaurants('')
       .then((res) => {
         setData(res.rests)
         const objectNames: { [key: string]: boolean } = {}

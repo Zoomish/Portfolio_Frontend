@@ -8,7 +8,6 @@ import { NotificationContext } from '../notification-provider/notification-provi
 
 interface IEditorRest {
   allCategories: TCategory[]
-  token: string
   t: (arg0: string) => string
   language: string
   pathRest: string

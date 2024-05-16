@@ -7,11 +7,10 @@ import { NotificationContext } from '../notification-provider/notification-provi
 
 interface IGroupModifiersForDish {
   pathRest: string
-  token: string
   t: (arg0: string) => string
 }
 
-const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
+const AdminPassword: FC<IGroupModifiersForDish> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
   const [form] = Form.useForm()
   const history = useHistory()
@@ -48,7 +47,7 @@ const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     adminAPI
-      .getAdmin(token, restId)
+      .getAdmin('token', restId)
       .then((res: TAdmin) => {
         setAdmin(res)
       })
@@ -76,7 +75,7 @@ const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
       newPassword: values.password
     }
     adminAPI
-      .updateAdminPassword(token, passwordAdmin)
+      .updateAdminPassword('token', passwordAdmin)
       .then((res: TAdmin) => {
         localStorage.removeItem('formDataAdmin')
         history.push(`/${pathRest}/admins`)

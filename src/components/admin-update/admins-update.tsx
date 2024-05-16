@@ -8,11 +8,10 @@ import * as restaurantAPI from '../../utils/api/restaurant-api'
 
 interface IGroupModifiersForDish {
   pathRest: string
-  token: string
   t: (arg0: string) => string
 }
 
-const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
+const AdminPassword: FC<IGroupModifiersForDish> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
   const [form] = Form.useForm()
   const history = useHistory()
@@ -41,7 +40,7 @@ const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     restaurantAPI
-      .getRestaurants(token)
+      .getRestaurants('token')
       .then((res) => {
         const nameRests: { [key: string]: string } = {}
         res.rests.forEach((rest: TRest) => {
@@ -65,7 +64,7 @@ const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     adminAPI
-      .getAdmin(token, restId)
+      .getAdmin('token', restId)
       .then((res: TAdmin) => {
         setAdmin(res)
       })
@@ -113,7 +112,7 @@ const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
       rest_id: values.rest_id ? PathRest[values.rest_id] : ''
     }
     adminAPI
-      .updateAdmin(token, newLanguageRest)
+      .updateAdmin('token', newLanguageRest)
       .then((res: TAdmin) => {
         localStorage.removeItem('formDataAdmin')
         history.push(`/${pathRest}/admins`)
@@ -123,7 +122,7 @@ const AdminPassword: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
 
   function confirm(): void {
     adminAPI
-      .deleteAdmin(token, admin._id)
+      .deleteAdmin('token', admin._id)
       .then(() => history.push(`/${pathRest}/admins`))
       .catch((e) => openNotification(e, 'topRight'))
   }

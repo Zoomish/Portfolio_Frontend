@@ -10,13 +10,12 @@ import AdminsForRest from '../../components/admins-for-rest/admins-for-rest'
 import EditorRestMenu from '../../components/editor-rest-menu/editor-rest-menu'
 
 interface IRest {
-  token: string
   t: (arg0: string) => string
   language: ECountry
   pathRest: string
 }
 
-const Restaurant: FC<IRest> = ({ token, t, pathRest, language }) => {
+const Restaurant: FC<IRest> = ({ t, pathRest, language }) => {
   const { openNotification } = useContext(NotificationContext)
   const pathname = useLocation().pathname
   const match = useRouteMatch(pathname)
@@ -28,7 +27,7 @@ const Restaurant: FC<IRest> = ({ token, t, pathRest, language }) => {
 
   React.useEffect(() => {
     restaurantAPI
-      .getRestaurant(token, restId)
+      .getRestaurant('token', restId)
       .then((res) => {
         setRest(res)
         setIsRest(true)
@@ -73,7 +72,6 @@ const Restaurant: FC<IRest> = ({ token, t, pathRest, language }) => {
         value === t('restaurant') ? (
           <EditorRest
             allCategories={[]}
-            token={token}
             pathRest={pathRest}
             t={t}
             language={language}
@@ -87,7 +85,6 @@ const Restaurant: FC<IRest> = ({ token, t, pathRest, language }) => {
       {isRest ? (
         value === t('admins') ? (
           <AdminsForRest
-            token={token}
             pathRest={pathRest}
             t={t}
           ></AdminsForRest>
@@ -100,7 +97,6 @@ const Restaurant: FC<IRest> = ({ token, t, pathRest, language }) => {
       {isRest ? (
         value === t('menu') ? (
           <EditorRestMenu
-            token={token}
             pathRest={pathRest}
             t={t}
           ></EditorRestMenu>

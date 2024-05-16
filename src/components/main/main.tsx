@@ -20,12 +20,10 @@ import Hello from '../../pages/hello/hello'
 const { Header, Sider, Content } = Layout
 
 interface IMain {
-  token: string
   pathRest: string
-  setToken: (token: any) => void
 }
 
-const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
+const Main: FC<IMain> = ({ pathRest }) => {
   // change to TRest
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
@@ -124,7 +122,6 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                   exact
                 >
                   <Admins
-                    token={token}
                     pathRest={pathRest}
                     t={t}
                     language={language}
@@ -134,14 +131,13 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                   path={`/:${pathRest}/admin/:adminId`}
                   exact
                 >
-                  <Admin token={token} pathRest={pathRest} t={t} />
+                  <Admin pathRest={pathRest} t={t} />
                 </Route>
                 <Route
                   path={`/:${pathRest}/main`}
                   exact
                 >
                   <Hello
-                    token={token}
                     pathRest={pathRest}
                     t={t}
                     language={language}
@@ -152,7 +148,6 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                   exact
                 >
                   <Restaurant
-                    token={token}
                     pathRest={pathRest}
                     t={t}
                     language={language}
