@@ -137,7 +137,7 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                   <Admin token={token} pathRest={pathRest} t={t} />
                 </Route>
                 <Route
-                  path={`/:${pathRest}/restaurants`}
+                  path={`/:${pathRest}/main`}
                   exact
                 >
                   <Hello

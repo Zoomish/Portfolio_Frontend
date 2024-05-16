@@ -9,13 +9,8 @@ interface ISidebar {
 }
 const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
   const history = useHistory()
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleUserClick = (): void => {
-    history.push(`/${pathRest}/list`)
-  }
   const handleRestaurantsClick = (): void => {
-    history.push(`/${pathRest}/restaurants`)
+    history.push(`/${pathRest}/main`)
   }
   const handleAdminsClick = (): void => {
     history.push(`/${pathRest}/admins`)
