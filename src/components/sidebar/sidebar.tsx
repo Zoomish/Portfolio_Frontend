@@ -1,11 +1,10 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { FC } from 'react'
 import { Menu } from 'antd'
 import { ContainerOutlined, UserOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
 interface ISidebar {
   pathRest: string
-  setIsLoggedIn: Dispatch<SetStateAction<boolean>>
   t: (arg0: string) => string
 }
 const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {

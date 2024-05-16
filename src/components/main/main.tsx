@@ -5,14 +5,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import fullscreenIcon from '../../assets/images/fullscreen.svg'
-import Autorization from '../../pages/autorization/autorization'
 import { ECountry } from '../../utils/typesFromBackend'
 import NotFound from '../../pages/not-found/not-found'
 import { useTranslation } from 'react-i18next'
 import { NotificationProvider } from '../notification-provider/notification-provider'
 import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
-import ProtectedRoute from '../protected-route/protected-route'
 import Sidebar from '../sidebar/sidebar'
 import Restaurants from '../../pages/restaurants/restaurants'
 import AddRestaurants from '../../pages/add-restaurant/add-restaurant'
@@ -48,7 +46,6 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
     i18n.changeLanguage(language)
   }, [])
   const [collapse, setCollapse] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     window.innerWidth <= 760 ? setCollapse(true) : setCollapse(false)
@@ -78,7 +75,7 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
             style={{ background: '#fff' }}
             width={'17rem'}
           >
-            <Sidebar setIsLoggedIn={setIsLoggedIn} pathRest={pathRest} t={t} />
+            <Sidebar pathRest={pathRest} t={t} />
           </Sider>
           <Layout
             style={{
@@ -124,18 +121,9 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
               }}
             >
               <Switch>
-                <Route path={`/:${pathRest}/autorization`}>
-                  <Autorization
-                    setIsLoggedIn={setIsLoggedIn}
-                    t={t}
-                    setToken={setToken}
-                  />
-                </Route>
-                <ProtectedRoute
+                <Route
                   path={`/:${pathRest}/admins`}
                   exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
                 >
                   <Admins
                     token={token}
@@ -143,28 +131,22 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                     t={t}
                     language={language}
                   />
-                </ProtectedRoute>
-                <ProtectedRoute
+                </Route>
+                <Route
                   path={`/:${pathRest}/admin/:adminId`}
                   exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
                 >
                   <Admin token={token} pathRest={pathRest} t={t} />
-                </ProtectedRoute>
-                <ProtectedRoute
+                </Route>
+                <Route
                   path={`/:${pathRest}/add/admin`}
                   exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
                 >
                   <AddAdmin token={token} pathRest={pathRest} t={t} />
-                </ProtectedRoute>
-                <ProtectedRoute
+                </Route>
+                <Route
                   path={`/:${pathRest}/restaurants`}
                   exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
                 >
                   <Restaurants
                     token={token}
@@ -172,12 +154,10 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                     t={t}
                     language={language}
                   />
-                </ProtectedRoute>
-                <ProtectedRoute
+                </Route>
+                <Route
                   path={`/:${pathRest}/restaurant/:restaurantId`}
                   exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
                 >
                   <Restaurant
                     token={token}
@@ -185,15 +165,13 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                     t={t}
                     language={language}
                   />
-                </ProtectedRoute>
-                <ProtectedRoute
+                </Route>
+                <Route
                   path={`/:${pathRest}/add/restaurant`}
                   exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
                 >
                   <AddRestaurants token={token} pathRest={pathRest} t={t} />
-                </ProtectedRoute>
+                </Route>
                 <Route path='*'>
                   <NotFound t={t} />
                 </Route>
