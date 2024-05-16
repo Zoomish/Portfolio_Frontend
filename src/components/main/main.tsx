@@ -13,10 +13,8 @@ import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
 import Restaurants from '../../pages/restaurants/restaurants'
-import AddRestaurants from '../../pages/add-restaurant/add-restaurant'
 import Restaurant from '../../pages/restaurant/restaurant'
 import Admins from '../../pages/admins/admins'
-import AddAdmin from '../../pages/add-admin/add-admin'
 import Admin from '../../pages/admin/admin'
 
 const { Header, Sider, Content } = Layout
@@ -139,12 +137,6 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                   <Admin token={token} pathRest={pathRest} t={t} />
                 </Route>
                 <Route
-                  path={`/:${pathRest}/add/admin`}
-                  exact
-                >
-                  <AddAdmin token={token} pathRest={pathRest} t={t} />
-                </Route>
-                <Route
                   path={`/:${pathRest}/restaurants`}
                   exact
                 >
@@ -165,12 +157,6 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
                     t={t}
                     language={language}
                   />
-                </Route>
-                <Route
-                  path={`/:${pathRest}/add/restaurant`}
-                  exact
-                >
-                  <AddRestaurants token={token} pathRest={pathRest} t={t} />
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />
