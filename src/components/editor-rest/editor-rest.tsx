@@ -13,7 +13,7 @@ interface IEditorRest {
   pathRest: string
 }
 
-const EditorRest: FC<IEditorRest> = ({ token, pathRest, t, language }) => {
+const EditorRest: FC<IEditorRest> = ({ pathRest, t, language }) => {
   const { openNotification } = useContext(NotificationContext)
   const [form] = Form.useForm()
   const history = useHistory()
@@ -52,7 +52,7 @@ const EditorRest: FC<IEditorRest> = ({ token, pathRest, t, language }) => {
 
   React.useEffect(() => {
     restaurantAPI
-      .getRestaurant(token, restId)
+      .getRestaurant('token', restId)
       .then((res) => {
         setDish(res)
         const storedFormDataString = localStorage.getItem('formDataRest')
@@ -91,7 +91,7 @@ const EditorRest: FC<IEditorRest> = ({ token, pathRest, t, language }) => {
     newLanguageDish.titleRest = values.title
     newLanguageDish._id = rest._id
     restaurantAPI
-      .updateRestaurant(token, newLanguageDish)
+      .updateRestaurant('token', newLanguageDish)
       .then((res: TRest) => {
         history.push(`/${pathRest}/restaurants`)
       })
@@ -100,7 +100,7 @@ const EditorRest: FC<IEditorRest> = ({ token, pathRest, t, language }) => {
 
   function confirm(): void {
     restaurantAPI
-      .deleteRestaurant(token, rest._id)
+      .deleteRestaurant('token', rest._id)
       .then(() => history.push(`/${pathRest}/restaurants`))
       .catch((e) => openNotification(e, 'topRight'))
   }
