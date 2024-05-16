@@ -20,7 +20,7 @@ interface IMenu {
   language: ECountry
 }
 
-const Restaurants: FC<IMenu> = ({ token, pathRest, t }) => {
+const Hello: FC<IMenu> = ({ token, pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
 
   const [data, setData] = React.useState<TRest[]>([])
@@ -138,4 +138,4 @@ const Restaurants: FC<IMenu> = ({ token, pathRest, t }) => {
     </div>
   )
 }
-export default Restaurants
+export default Hello
