@@ -7,8 +7,8 @@ interface IChangeLanguage {
   changeLanguage: (lng: ECountry) => void
 }
 const ChoiseLanguage: FC<IChangeLanguage> = ({ t, changeLanguage }) => {
-  const [selectedOption, setSelectedOption] = React.useState('')
   const restData = Object.keys(ECountry)
+  const [selectedOption, setSelectedOption] = React.useState(restData[0])
 
   React.useEffect(() => {
     const storedLanguage = localStorage.getItem('language')
