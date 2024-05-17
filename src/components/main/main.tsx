@@ -47,14 +47,25 @@ const Main: FC<IMain> = ({ pathRest }) => {
         setUser(res)
       })
       .catch((e) => openNotification(e, 'topRight'))
-  })
+  }, [])
 
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     i18n.changeLanguage(language)
   }, [])
   const [collapse, setCollapse] = useState(false)
-
+  let flag = false
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', function resizeHandler() {
+      if (window.innerWidth < 768 && !flag) {
+        setCollapse(true)
+        flag = true
+      } else if (window.innerWidth >= 768 && flag) {
+        setCollapse(false)
+        flag = false
+      }
+    })
+  }
   useEffect(() => {
     window.innerWidth <= 760 ? setCollapse(true) : setCollapse(false)
   }, [])
@@ -144,7 +155,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                       user={user}
                     />
                   ) : (
-                    <div>Loading...</div>
+                    <></>
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>

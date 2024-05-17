@@ -31,7 +31,7 @@ const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
         </Menu.Item>
         <Menu.Item key='2' onClick={handleAdminsClick}>
           <ContactsOutlined />
-          <span>{t('admins')}</span>
+          <span>{t('contacts')}</span>
         </Menu.Item>
       </Menu>
     </>
