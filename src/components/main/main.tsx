@@ -18,6 +18,7 @@ import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
+import ChangeDark from '../change-dark-mode/change-dark-mode'
 
 const { Header, Sider, Content } = Layout
 
@@ -28,6 +29,7 @@ interface IMain {
 const Main: FC<IMain> = ({ pathRest }) => {
   const { openNotification } = useContext(NotificationContext)
   const [user, setUser] = useState<TUser>()
+  const [dark, setDark] = useState<boolean>(false)
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
   )
@@ -48,6 +50,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
       })
       .catch((e) => openNotification(e, 'topRight'))
   }, [])
+
+  const changeDark = (): void => {
+    setDark(!dark)
+    localStorage.setItem('dark', String(!dark))
+  }
 
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -121,6 +128,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   style: { color: '#000' }
                 }
               )}
+              <ChangeDark changeLanguage={changeDark}/>
               <ChoiseLanguage t={t} changeLanguage={changeLanguage} />
               <div
                 className='fullscreen-btn'
