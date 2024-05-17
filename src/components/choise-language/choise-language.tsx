@@ -38,13 +38,13 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, style, changeLanguage }) => {
     changeLanguage(values as ECountry)
     localStorage.setItem('language', values)
   }
-
   return (
     <>
       {restData ? (
         <Select
           id='my-select'
           value={selectedOption}
+          className='aaa'
           onChange={(e) => onFinish(e)}
         >
           {restData.map((country) => (
