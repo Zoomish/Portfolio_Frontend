@@ -134,6 +134,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 }
               )}
               <ChoiseLanguage
+                dark={dark}
                 style={color}
                 t={t}
                 changeLanguage={changeLanguage}
