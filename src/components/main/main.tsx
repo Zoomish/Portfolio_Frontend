@@ -144,7 +144,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                       user={user}
                     />
                   ) : (
-                    <div>Loading...</div>
+                    <></>
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
