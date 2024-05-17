@@ -44,11 +44,16 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, style, changeLanguage }) => {
       {restData ? (
         <Select
           id='my-select'
+          style={style}
           value={selectedOption}
           onChange={(e) => onFinish(e)}
         >
           {restData.map((country) => (
-            <Select.Option key={country} value={country}>
+            <Select.Option
+              key={country}
+              value={country}
+              style={{ ...style, marginBottom: '1px' }}
+            >
               {country}
             </Select.Option>
           ))}
