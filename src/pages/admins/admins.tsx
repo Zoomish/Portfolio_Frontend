@@ -13,13 +13,12 @@ interface ILevelsAccess {
 }
 
 interface IAdmins {
-  token: string
   pathRest: string
   t: (arg0: string) => string
   language: ECountry
 }
 
-const Admins: FC<IAdmins> = ({ token, pathRest, t }) => {
+const Admins: FC<IAdmins> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
 
   const [data, setData] = React.useState<TAdmin[]>([])
@@ -29,7 +28,7 @@ const Admins: FC<IAdmins> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     restaurantAPI
-      .getRestaurants(token)
+      .getRestaurants('token')
       .then((res) => {
         const nameRests: { [key: string]: string } = {}
         res.rests.forEach((rest: TRest) => {
@@ -43,7 +42,7 @@ const Admins: FC<IAdmins> = ({ token, pathRest, t }) => {
   }, [])
   React.useEffect(() => {
     adminAPI
-      .getAllAdmins(token)
+      .getAllAdmins('token')
       .then((res) => {
         setData(res.admins)
         const levelsAccessNames: { [key: string]: boolean } = {}

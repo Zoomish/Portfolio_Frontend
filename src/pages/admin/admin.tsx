@@ -9,12 +9,11 @@ import AdminPassword from '../../components/admin-password/admin-password'
 import AdminUpdate from '../../components/admin-update/admins-update'
 
 interface IEditorRest {
-  token: string
   t: (arg0: string) => string
   pathRest: string
 }
 
-const Admin: FC<IEditorRest> = ({ token, pathRest, t }) => {
+const Admin: FC<IEditorRest> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
   const pathname = useLocation().pathname
   const match = useRouteMatch(pathname)
@@ -25,7 +24,7 @@ const Admin: FC<IEditorRest> = ({ token, pathRest, t }) => {
   const [isModalVisible, setIsModalVisible] = React.useState(false)
   React.useEffect(() => {
     adminAPI
-      .getAdmin(token, restId)
+      .getAdmin('token', restId)
       .then((res: TAdmin) => {
         setIsRest(true)
         setAdmin(res)
@@ -59,7 +58,7 @@ const Admin: FC<IEditorRest> = ({ token, pathRest, t }) => {
       />{' '}
       {isRest ? (
         value === t('admin') ? (
-          <AdminUpdate token={token} pathRest={pathRest} t={t} />
+          <AdminUpdate pathRest={pathRest} t={t} />
         ) : (
           ''
         )
@@ -69,7 +68,6 @@ const Admin: FC<IEditorRest> = ({ token, pathRest, t }) => {
       {isRest ? (
         value === t('password') ? (
           <AdminPassword
-            token={token}
             pathRest={pathRest}
             t={t}
           ></AdminPassword>

@@ -246,5 +246,6 @@
   "logo": "Logo",
   "сonfirm-password": "Confirm Password",
   "password-do-not-match": "Password mismatch",
-  "menu-uploaded": "Menu imported successfully"
+  "menu-uploaded": "Menu imported successfully",
+  "main": "Home"
 }

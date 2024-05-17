@@ -1,22 +1,16 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { FC } from 'react'
 import { Menu } from 'antd'
-import { ContainerOutlined, UserOutlined } from '@ant-design/icons'
+import { UserOutlined, ContactsOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
 interface ISidebar {
   pathRest: string
-  setIsLoggedIn: Dispatch<SetStateAction<boolean>>
   t: (arg0: string) => string
 }
 const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
   const history = useHistory()
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleUserClick = (): void => {
-    history.push(`/${pathRest}/list`)
-  }
-  const handleRestaurantsClick = (): void => {
-    history.push(`/${pathRest}/restaurants`)
+  const handleHomeClick = (): void => {
+    history.push(`/${pathRest}/home`)
   }
   const handleAdminsClick = (): void => {
     history.push(`/${pathRest}/admins`)
@@ -31,12 +25,12 @@ const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
         style={{ textAlign: 'left' }}
         defaultSelectedKeys={['1']}
       >
-        <Menu.Item key='1' onClick={handleRestaurantsClick}>
-          <ContainerOutlined />
-          <span>{t('restaurants')}</span>
+        <Menu.Item key='1' onClick={handleHomeClick}>
+          <UserOutlined />
+          <span>{t('main')}</span>
         </Menu.Item>
         <Menu.Item key='2' onClick={handleAdminsClick}>
-          <UserOutlined />
+          <ContactsOutlined />
           <span>{t('admins')}</span>
         </Menu.Item>
       </Menu>

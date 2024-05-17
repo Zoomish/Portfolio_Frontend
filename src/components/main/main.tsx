@@ -1,36 +1,33 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import React, { useState, useEffect, FC } from 'react'
+import React, { useState, useEffect, FC, useContext } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import fullscreenIcon from '../../assets/images/fullscreen.svg'
-import Autorization from '../../pages/autorization/autorization'
-import { ECountry } from '../../utils/typesFromBackend'
+import { ECountry, TUser } from '../../utils/typesFromBackend'
 import NotFound from '../../pages/not-found/not-found'
 import { useTranslation } from 'react-i18next'
 import { NotificationProvider } from '../notification-provider/notification-provider'
 import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
-import ProtectedRoute from '../protected-route/protected-route'
 import Sidebar from '../sidebar/sidebar'
-import Restaurants from '../../pages/restaurants/restaurants'
-import AddRestaurants from '../../pages/add-restaurant/add-restaurant'
 import Restaurant from '../../pages/restaurant/restaurant'
 import Admins from '../../pages/admins/admins'
-import AddAdmin from '../../pages/add-admin/add-admin'
 import Admin from '../../pages/admin/admin'
+import Home from '../../pages/home/home'
+import * as userApi from '../../utils/api/user-api'
+import { NotificationContext } from '../../components/notification-provider/notification-provider'
 
 const { Header, Sider, Content } = Layout
 
 interface IMain {
-  token: string
   pathRest: string
-  setToken: (token: any) => void
 }
 
-const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
-  // change to TRest
+const Main: FC<IMain> = ({ pathRest }) => {
+  const { openNotification } = useContext(NotificationContext)
+  const [user, setUser] = useState<TUser>()
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
   )
@@ -44,11 +41,19 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
   }
 
   React.useEffect(() => {
+    userApi
+      .getAllUsers()
+      .then((res) => {
+        setUser(res)
+      })
+      .catch((e) => openNotification(e, 'topRight'))
+  })
+
+  React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     i18n.changeLanguage(language)
   }, [])
   const [collapse, setCollapse] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     window.innerWidth <= 760 ? setCollapse(true) : setCollapse(false)
@@ -78,7 +83,7 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
             style={{ background: '#fff' }}
             width={'17rem'}
           >
-            <Sidebar setIsLoggedIn={setIsLoggedIn} pathRest={pathRest} t={t} />
+            <Sidebar pathRest={pathRest} t={t} />
           </Sider>
           <Layout
             style={{
@@ -124,76 +129,27 @@ const Main: FC<IMain> = ({ token, pathRest, setToken }) => {
               }}
             >
               <Switch>
-                <Route path={`/:${pathRest}/autorization`}>
-                  <Autorization
-                    setIsLoggedIn={setIsLoggedIn}
-                    t={t}
-                    setToken={setToken}
-                  />
+                <Route path={`/:${pathRest}/admins`} exact>
+                  <Admins pathRest={pathRest} t={t} language={language} />
                 </Route>
-                <ProtectedRoute
-                  path={`/:${pathRest}/admins`}
-                  exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
-                >
-                  <Admins
-                    token={token}
-                    pathRest={pathRest}
-                    t={t}
-                    language={language}
-                  />
-                </ProtectedRoute>
-                <ProtectedRoute
-                  path={`/:${pathRest}/admin/:adminId`}
-                  exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
-                >
-                  <Admin token={token} pathRest={pathRest} t={t} />
-                </ProtectedRoute>
-                <ProtectedRoute
-                  path={`/:${pathRest}/add/admin`}
-                  exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
-                >
-                  <AddAdmin token={token} pathRest={pathRest} t={t} />
-                </ProtectedRoute>
-                <ProtectedRoute
-                  path={`/:${pathRest}/restaurants`}
-                  exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
-                >
-                  <Restaurants
-                    token={token}
-                    pathRest={pathRest}
-                    t={t}
-                    language={language}
-                  />
-                </ProtectedRoute>
-                <ProtectedRoute
-                  path={`/:${pathRest}/restaurant/:restaurantId`}
-                  exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
-                >
-                  <Restaurant
-                    token={token}
-                    pathRest={pathRest}
-                    t={t}
-                    language={language}
-                  />
-                </ProtectedRoute>
-                <ProtectedRoute
-                  path={`/:${pathRest}/add/restaurant`}
-                  exact
-                  isLoggedIn={isLoggedIn}
-                  pathRest={pathRest}
-                >
-                  <AddRestaurants token={token} pathRest={pathRest} t={t} />
-                </ProtectedRoute>
+                <Route path={`/:${pathRest}/admin/:adminId`} exact>
+                  <Admin pathRest={pathRest} t={t} />
+                </Route>
+                <Route path={`/:${pathRest}/home`} exact>
+                  {user ? (
+                    <Home
+                      pathRest={pathRest}
+                      t={t}
+                      language={language}
+                      user={user}
+                    />
+                  ) : (
+                    <div>Loading...</div>
+                  )}
+                </Route>
+                <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
+                  <Restaurant pathRest={pathRest} t={t} language={language} />
+                </Route>
                 <Route path='*'>
                   <NotFound t={t} />
                 </Route>

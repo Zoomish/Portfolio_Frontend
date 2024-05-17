@@ -14,11 +14,10 @@ interface ILevelsAccess {
 
 interface IGroupModifiersForDish {
   pathRest: string
-  token: string
   t: (arg0: string) => string
 }
 
-const AdminsForRest: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
+const AdminsForRest: FC<IGroupModifiersForDish> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
   const pathname = useLocation().pathname
   const match = useRouteMatch(pathname)
@@ -31,7 +30,7 @@ const AdminsForRest: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
 
   React.useEffect(() => {
     adminAPI
-      .getAllAdmins(token)
+      .getAllAdmins('token')
       .then((res) => {
         const nameRests: TAdmin[] = []
         const unUsedAdmied: TAdmin[] = []
@@ -70,7 +69,7 @@ const AdminsForRest: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
       rest_id: ''
     }
     adminAPI
-      .updateAdmin(token, newLanguageRest)
+      .updateAdmin('token', newLanguageRest)
       .then((res: any) => {
         setUpdate(!update)
       })
@@ -121,7 +120,7 @@ const AdminsForRest: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
 
   const onFinish = (values: any): void => {
     adminAPI
-      .getAdmin(token, values._id)
+      .getAdmin('token', values._id)
       .then((res: TAdmin) => {
         const newLanguageRest: any = {
           _id: res._id,
@@ -131,7 +130,7 @@ const AdminsForRest: FC<IGroupModifiersForDish> = ({ token, pathRest, t }) => {
           rest_id: restId
         }
         adminAPI
-          .updateAdmin(token, newLanguageRest)
+          .updateAdmin('token', newLanguageRest)
           .then((res: any) => {
             setUpdate(!update)
           })
