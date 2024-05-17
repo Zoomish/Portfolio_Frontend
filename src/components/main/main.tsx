@@ -15,7 +15,7 @@ import Sidebar from '../sidebar/sidebar'
 import Restaurant from '../../pages/restaurant/restaurant'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
-import Hello from '../../pages/home/hello'
+import Hello from '../../pages/home/home'
 
 const { Header, Sider, Content } = Layout
 
