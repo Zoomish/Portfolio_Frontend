@@ -47,7 +47,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
         setUser(res)
       })
       .catch((e) => openNotification(e, 'topRight'))
-  })
+  }, [])
 
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
