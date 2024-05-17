@@ -54,7 +54,23 @@ const Main: FC<IMain> = ({ pathRest }) => {
     i18n.changeLanguage(language)
   }, [])
   const [collapse, setCollapse] = useState(false)
+  let flag = false
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', function resizeHandler() {
+      if (window.innerWidth < 1024 && !flag && collapse) {
+        setCollapse(false)
+        flag = true
+      } else if (window.innerWidth >= 1024 && flag && collapse) {
+        setCollapse(true)
+        flag = false
+      }
 
+      // Добавляем условие для проверки ширины окна
+      if (window.innerWidth >= 1024) {
+        setCollapse(true) // Если ширина окна больше или равна 1024px, отображаем каталог
+      }
+    })
+  }
   useEffect(() => {
     window.innerWidth <= 760 ? setCollapse(true) : setCollapse(false)
   }, [])
