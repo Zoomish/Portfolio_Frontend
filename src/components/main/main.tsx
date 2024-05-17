@@ -65,14 +65,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', function resizeHandler() {
       if (window.innerWidth < 768 && !flag) {
-        if (document.fullscreenElement != null) {
-          void document.exitFullscreen()
-        } else {
-          void document.body.requestFullscreen()
-        }
+        void document.body.requestFullscreen()
         setCollapse(true)
         flag = true
       } else if (window.innerWidth >= 768 && flag) {
+        void document.exitFullscreen()
         setCollapse(false)
         flag = false
       }
