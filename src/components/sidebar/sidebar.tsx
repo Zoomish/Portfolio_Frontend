@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Menu } from 'antd'
-import { ContainerOutlined, UserOutlined } from '@ant-design/icons'
+import { UserOutlined, ContactsOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
 interface ISidebar {
@@ -26,11 +26,11 @@ const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
         defaultSelectedKeys={['1']}
       >
         <Menu.Item key='1' onClick={handleHomeClick}>
-          <ContainerOutlined />
+          <UserOutlined />
           <span>{t('main')}</span>
         </Menu.Item>
         <Menu.Item key='2' onClick={handleAdminsClick}>
-          <UserOutlined />
+          <ContactsOutlined />
           <span>{t('admins')}</span>
         </Menu.Item>
       </Menu>
