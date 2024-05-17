@@ -19,7 +19,7 @@ interface IMenu {
   language: ECountry
 }
 
-const Hello: FC<IMenu> = ({ pathRest, t }) => {
+const Home: FC<IMenu> = ({ pathRest, t }) => {
   const { openNotification } = useContext(NotificationContext)
 
   const [data, setData] = React.useState<TRest[]>([])
@@ -137,4 +137,4 @@ const Hello: FC<IMenu> = ({ pathRest, t }) => {
     </div>
   )
 }
-export default Hello
+export default Home

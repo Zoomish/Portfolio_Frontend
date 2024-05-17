@@ -15,7 +15,7 @@ import Sidebar from '../sidebar/sidebar'
 import Restaurant from '../../pages/restaurant/restaurant'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
-import Hello from '../../pages/home/home'
+import Home from '../../pages/home/home'
 
 const { Header, Sider, Content } = Layout
 
@@ -137,7 +137,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   path={`/:${pathRest}/main`}
                   exact
                 >
-                  <Hello
+                  <Home
                     pathRest={pathRest}
                     t={t}
                     language={language}
