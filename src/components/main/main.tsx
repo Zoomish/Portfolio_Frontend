@@ -105,7 +105,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             style={color}
             width={'17rem'}
           >
-            <Sidebar pathRest={pathRest} t={t} />
+            <Sidebar style={color} pathRest={pathRest} t={t} />
           </Sider>
           <Layout
             style={{
@@ -132,7 +132,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   style: color
                 }
               )}
-              <ChoiseLanguage style={color} t={t} changeLanguage={changeLanguage} />
+              <ChoiseLanguage
+                style={color}
+                t={t}
+                changeLanguage={changeLanguage}
+              />
               <ChangeDark style={color} dark={dark} changeDark={changeDark} />
               <div
                 className='fullscreen-btn'
