@@ -128,8 +128,8 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   style: { color: '#000' }
                 }
               )}
-              <ChangeDark changeLanguage={changeDark}/>
               <ChoiseLanguage t={t} changeLanguage={changeLanguage} />
+              <ChangeDark dark={dark} changeDark={changeDark} />
               <div
                 className='fullscreen-btn'
                 onClick={handleClickFullScreen}
