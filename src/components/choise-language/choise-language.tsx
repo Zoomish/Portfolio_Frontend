@@ -5,9 +5,15 @@ import { Select } from 'antd'
 interface IChangeLanguage {
   t: (arg0: string) => string
   changeLanguage: (lng: ECountry) => void
+  dark: boolean
   style: any
 }
-const ChoiseLanguage: FC<IChangeLanguage> = ({ t, style, changeLanguage }) => {
+const ChoiseLanguage: FC<IChangeLanguage> = ({
+  t,
+  dark,
+  style,
+  changeLanguage
+}) => {
   const restData = Object.keys(ECountry)
   const [selectedOption, setSelectedOption] = React.useState(restData[0])
 
@@ -44,7 +50,7 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, style, changeLanguage }) => {
         <Select
           id='my-select'
           value={selectedOption}
-          className='aaa'
+          className={dark ? 'black' : 'white'}
           onChange={(e) => onFinish(e)}
         >
           {restData.map((country) => (
