@@ -57,10 +57,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
   let flag = false
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', function resizeHandler() {
-      if (window.innerWidth < 768 && !flag && collapse) {
+      if (window.innerWidth < 768 && !flag) {
         setCollapse(true)
         flag = true
-      } else if (window.innerWidth >= 768 && flag && collapse) {
+      } else if (window.innerWidth >= 768 && flag) {
         setCollapse(false)
         flag = false
       }
