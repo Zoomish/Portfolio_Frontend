@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import 'antd/dist/reset.css'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import App from './components/app/App'
+import App from './components/app/app'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
