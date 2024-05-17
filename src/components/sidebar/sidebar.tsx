@@ -9,7 +9,7 @@ interface ISidebar {
 }
 const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
   const history = useHistory()
-  const handleRestaurantsClick = (): void => {
+  const handleHomeClick = (): void => {
     history.push(`/${pathRest}/main`)
   }
   const handleAdminsClick = (): void => {
@@ -25,9 +25,9 @@ const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
         style={{ textAlign: 'left' }}
         defaultSelectedKeys={['1']}
       >
-        <Menu.Item key='1' onClick={handleRestaurantsClick}>
+        <Menu.Item key='1' onClick={handleHomeClick}>
           <ContainerOutlined />
-          <span>{t('restaurants')}</span>
+          <span>{t('main')}</span>
         </Menu.Item>
         <Menu.Item key='2' onClick={handleAdminsClick}>
           <UserOutlined />
