@@ -10,7 +10,7 @@ interface ISidebar {
 const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
   const history = useHistory()
   const handleHomeClick = (): void => {
-    history.push(`/${pathRest}/main`)
+    history.push(`/${pathRest}/home`)
   }
   const handleAdminsClick = (): void => {
     history.push(`/${pathRest}/admins`)

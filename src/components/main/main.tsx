@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import React, { useState, useEffect, FC } from 'react'
+import React, { useState, useEffect, FC, useContext } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Layout } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import fullscreenIcon from '../../assets/images/fullscreen.svg'
-import { ECountry } from '../../utils/typesFromBackend'
+import { ECountry, TUser } from '../../utils/typesFromBackend'
 import NotFound from '../../pages/not-found/not-found'
 import { useTranslation } from 'react-i18next'
 import { NotificationProvider } from '../notification-provider/notification-provider'
@@ -16,6 +16,8 @@ import Restaurant from '../../pages/restaurant/restaurant'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
+import * as userApi from '../../utils/api/user-api'
+import { NotificationContext } from '../../components/notification-provider/notification-provider'
 
 const { Header, Sider, Content } = Layout
 
@@ -24,7 +26,8 @@ interface IMain {
 }
 
 const Main: FC<IMain> = ({ pathRest }) => {
-  // change to TRest
+  const { openNotification } = useContext(NotificationContext)
+  const [user, setUser] = useState<TUser>()
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
   )
@@ -36,6 +39,15 @@ const Main: FC<IMain> = ({ pathRest }) => {
     setLanguage(lng)
     localStorage.removeItem('formData')
   }
+
+  React.useEffect(() => {
+    userApi
+      .getAllUsers()
+      .then((res) => {
+        setUser(res)
+      })
+      .catch((e) => openNotification(e, 'topRight'))
+  })
 
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -117,41 +129,22 @@ const Main: FC<IMain> = ({ pathRest }) => {
               }}
             >
               <Switch>
-                <Route
-                  path={`/:${pathRest}/admins`}
-                  exact
-                >
-                  <Admins
-                    pathRest={pathRest}
-                    t={t}
-                    language={language}
-                  />
+                <Route path={`/:${pathRest}/admins`} exact>
+                  <Admins pathRest={pathRest} t={t} language={language} />
                 </Route>
-                <Route
-                  path={`/:${pathRest}/admin/:adminId`}
-                  exact
-                >
+                <Route path={`/:${pathRest}/admin/:adminId`} exact>
                   <Admin pathRest={pathRest} t={t} />
                 </Route>
-                <Route
-                  path={`/:${pathRest}/main`}
-                  exact
-                >
+                <Route path={`/:${pathRest}/home`} exact>
                   <Home
                     pathRest={pathRest}
                     t={t}
                     language={language}
+                    user={user}
                   />
                 </Route>
-                <Route
-                  path={`/:${pathRest}/restaurant/:restaurantId`}
-                  exact
-                >
-                  <Restaurant
-                    pathRest={pathRest}
-                    t={t}
-                    language={language}
-                  />
+                <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
+                  <Restaurant pathRest={pathRest} t={t} language={language} />
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />
