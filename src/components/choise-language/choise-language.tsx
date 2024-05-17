@@ -17,7 +17,10 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, changeLanguage }) => {
       Object.values(ECountry).includes(storedLanguage as ECountry)
     ) {
       setSelectedOption(storedLanguage)
-      document.documentElement.setAttribute('lang', storedLanguage.toLocaleLowerCase())
+      document.documentElement.setAttribute(
+        'lang',
+        storedLanguage.toLocaleLowerCase()
+      )
       changeLanguage(storedLanguage as ECountry)
     }
   }, [])
@@ -30,20 +33,18 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, changeLanguage }) => {
 
   return (
     <>
-      {restData && Array.isArray(restData) ? (
-        <>
-          <Select
-            id='my-select'
-            value={selectedOption}
-            onChange={(e) => onFinish(e)}
-          >
-            {restData.map((country) => (
-              <Select.Option key={country} value={country}>
-                {country}
-              </Select.Option>
-            ))}
-          </Select>
-        </>
+      {restData ? (
+        <Select
+          id='my-select'
+          value={selectedOption}
+          onChange={(e) => onFinish(e)}
+        >
+          {restData.map((country) => (
+            <Select.Option key={country} value={country}>
+              {country}
+            </Select.Option>
+          ))}
+        </Select>
       ) : (
         ''
       )}
