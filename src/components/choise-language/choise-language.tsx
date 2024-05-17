@@ -22,6 +22,13 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, changeLanguage }) => {
         storedLanguage.toLocaleLowerCase()
       )
       changeLanguage(storedLanguage as ECountry)
+    } else {
+      setSelectedOption(restData[0])
+      document.documentElement.setAttribute(
+        'lang',
+        restData[0].toLocaleLowerCase()
+      )
+      changeLanguage(storedLanguage as ECountry)
     }
   }, [])
   const onFinish = (values: string): void => {
