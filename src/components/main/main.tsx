@@ -136,12 +136,16 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   <Admin pathRest={pathRest} t={t} />
                 </Route>
                 <Route path={`/:${pathRest}/home`} exact>
-                  <Home
-                    pathRest={pathRest}
-                    t={t}
-                    language={language}
-                    user={user}
-                  />
+                  {user ? (
+                    <Home
+                      pathRest={pathRest}
+                      t={t}
+                      language={language}
+                      user={user}
+                    />
+                  ) : (
+                    <div>Loading...</div>
+                  )}
                 </Route>
                 <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
                   <Restaurant pathRest={pathRest} t={t} language={language} />

@@ -17,16 +17,16 @@ const App: FC = () => {
     <div className='App'>
       <Switch>
         <Route path='/' exact={true}>
-          <Redirect to={{ pathname: `/${pathRest}/main` }} />
+          <Redirect to={{ pathname: `/${pathRest}/home` }} />
         </Route>
-        <Route path={`/${pathRest}/main`} exact={true}>
+        <Route path={`/${pathRest}/home`} exact={true}>
           <Main pathRest={pathRest} />
         </Route>
         <Route path={'/portfoilo'} exact>
-          <Redirect to={`/${pathRest}/main`} />
+          <Redirect to={`/${pathRest}/home`} />
         </Route>
         <Route path={'*'} exact>
-          <Redirect to={`/${pathRest}/main`} />
+          <Redirect to={`/${pathRest}/home`} />
         </Route>
       </Switch>
     </div>
