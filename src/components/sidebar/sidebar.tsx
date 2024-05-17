@@ -6,8 +6,9 @@ import { useHistory } from 'react-router'
 interface ISidebar {
   pathRest: string
   t: (arg0: string) => string
+  style: any
 }
-const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
+const Sidebar: FC<ISidebar> = ({ style, pathRest, t }) => {
   const history = useHistory()
   const handleHomeClick = (): void => {
     history.push(`/${pathRest}/home`)
@@ -22,7 +23,7 @@ const Sidebar: FC<ISidebar> = ({ pathRest, t }) => {
       <Menu
         theme='light'
         mode='inline'
-        style={{ textAlign: 'left' }}
+        style={{ textAlign: 'left', ...style }}
         defaultSelectedKeys={['1']}
       >
         <Menu.Item key='1' onClick={handleHomeClick}>

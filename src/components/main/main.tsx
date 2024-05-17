@@ -18,6 +18,7 @@ import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
+import ChangeDark from '../change-dark-mode/change-dark-mode'
 
 const { Header, Sider, Content } = Layout
 
@@ -28,6 +29,7 @@ interface IMain {
 const Main: FC<IMain> = ({ pathRest }) => {
   const { openNotification } = useContext(NotificationContext)
   const [user, setUser] = useState<TUser>()
+  const [dark, setDark] = useState<boolean>(false)
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
   )
@@ -49,6 +51,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
       .catch((e) => openNotification(e, 'topRight'))
   }, [])
 
+  const changeDark = (): void => {
+    setDark(!dark)
+    localStorage.setItem('dark', String(!dark))
+  }
+
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     i18n.changeLanguage(language)
@@ -67,6 +74,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
     })
   }
   useEffect(() => {
+    setDark(Boolean(localStorage.getItem('dark')))
     window.innerWidth <= 760 ? setCollapse(true) : setCollapse(false)
   }, [])
 
@@ -82,6 +90,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
       void document.body.requestFullscreen()
     }
   }
+  const color = {
+    background: dark ? '#000' : '#fff',
+    color: dark ? '#fff' : '#000'
+  }
 
   return (
     <NotificationProvider>
@@ -91,14 +103,14 @@ const Main: FC<IMain> = ({ pathRest }) => {
             trigger={null}
             collapsible
             collapsed={collapse}
-            style={{ background: '#fff' }}
+            style={color}
             width={'17rem'}
           >
-            <Sidebar pathRest={pathRest} t={t} />
+            <Sidebar style={color} pathRest={pathRest} t={t} />
           </Sider>
           <Layout
             style={{
-              background: '#fff',
+              ...color,
               paddingLeft: '30px',
               paddingRight: '30px'
             }}
@@ -107,7 +119,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               className='siteLayoutBackground'
               style={{
                 padding: 0,
-                background: '#fff',
+                ...color,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between'
@@ -118,10 +130,15 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 {
                   className: 'trigger',
                   onClick: handleToggle,
-                  style: { color: '#000' }
+                  style: color
                 }
               )}
-              <ChoiseLanguage t={t} changeLanguage={changeLanguage} />
+              <ChoiseLanguage
+                style={color}
+                t={t}
+                changeLanguage={changeLanguage}
+              />
+              <ChangeDark style={color} dark={dark} changeDark={changeDark} />
               <div
                 className='fullscreen-btn'
                 onClick={handleClickFullScreen}
@@ -136,7 +153,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 margin: '24px 16px',
                 padding: 24,
                 minHeight: 'calc(100vh - 114px)',
-                background: '#fff'
+                ...color
               }}
             >
               <Switch>
