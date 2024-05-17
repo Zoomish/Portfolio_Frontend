@@ -1,17 +1,18 @@
 import { Button } from 'antd'
 import React, { FC } from 'react'
-import { SunOutlined, MoonOutlined } from '@ant-design/icons'
+import { SunFilled, MoonOutlined } from '@ant-design/icons'
 
 interface IChangeLanguage {
   dark: boolean
   changeDark: () => void
+  style: any
 }
-const ChangeDark: FC<IChangeLanguage> = ({ dark, changeDark }) => {
+const ChangeDark: FC<IChangeLanguage> = ({ style, dark, changeDark }) => {
   return (
     <Button
-      icon={!dark ? <MoonOutlined /> : <SunOutlined />}
+      icon={!dark ? <MoonOutlined /> : <SunFilled />}
       onClick={() => changeDark()}
-      style={{ width: '40px' }}
+      style={{ width: '40px', ...style }}
     />
   )
 }

@@ -109,7 +109,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
           </Sider>
           <Layout
             style={{
-              background: '#fff',
+              ...color,
               paddingLeft: '30px',
               paddingRight: '30px'
             }}
@@ -118,7 +118,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               className='siteLayoutBackground'
               style={{
                 padding: 0,
-                background: '#fff',
+                ...color,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between'
@@ -129,11 +129,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 {
                   className: 'trigger',
                   onClick: handleToggle,
-                  style: { color: '#000' }
+                  style: color
                 }
               )}
               <ChoiseLanguage t={t} changeLanguage={changeLanguage} />
-              <ChangeDark dark={dark} changeDark={changeDark} />
+              <ChangeDark style={color} dark={dark} changeDark={changeDark} />
               <div
                 className='fullscreen-btn'
                 onClick={handleClickFullScreen}
@@ -148,7 +148,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 margin: '24px 16px',
                 padding: 24,
                 minHeight: 'calc(100vh - 114px)',
-                background: '#fff'
+                ...color
               }}
             >
               <Switch>
