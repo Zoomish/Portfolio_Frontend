@@ -5,17 +5,15 @@ export interface TButton {
 }
 
 export interface TUser {
-  _id: string
-  nickname?: string
-  birthdate?: string
-  name?: string
-  phone: string
-  street?: string
-  house?: string
-  flat?: string
-  city?: TCity
-  smsCode?: string
-  timeSendCode?: string
+  id: string
+  name: string
+  github: string
+  email: string
+  image: string
+  expirience: string
+  work: TCity
+  skills: string
+  portfolio: string
 }
 export interface TOrder {
   _id: string
