@@ -15,9 +15,8 @@ const ChangeDark: FC<IChangeLanguage> = ({ dark, changeDark }) => {
     <Button
       icon={dark ? <MoonOutlined /> : <SunOutlined />}
       onClick={() => changeDark()}
-    >
-      Search
-    </Button>
+      style={{ width: '40px' }}
+    />
   )
 }
 export default ChangeDark
