@@ -7,10 +7,6 @@ interface IChangeLanguage {
   changeDark: () => void
 }
 const ChangeDark: FC<IChangeLanguage> = ({ dark, changeDark }) => {
-  React.useEffect(() => {
-    console.log(dark)
-  }, [dark])
-
   return (
     <Button
       icon={!dark ? <MoonOutlined /> : <SunOutlined />}
