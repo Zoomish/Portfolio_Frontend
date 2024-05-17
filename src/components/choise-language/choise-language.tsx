@@ -38,7 +38,6 @@ const ChoiseLanguage: FC<IChangeLanguage> = ({ t, style, changeLanguage }) => {
     changeLanguage(values as ECountry)
     localStorage.setItem('language', values)
   }
-  console.log(style)
 
   return (
     <>
