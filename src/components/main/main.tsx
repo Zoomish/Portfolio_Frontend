@@ -89,6 +89,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
       void document.body.requestFullscreen()
     }
   }
+  const color = {
+    background: dark ? '#000' : '#fff',
+    color: dark ? '#fff' : '#000'
+  }
 
   return (
     <NotificationProvider>
@@ -98,7 +102,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             trigger={null}
             collapsible
             collapsed={collapse}
-            style={{ background: '#fff' }}
+            style={color}
             width={'17rem'}
           >
             <Sidebar pathRest={pathRest} t={t} />
