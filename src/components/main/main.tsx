@@ -57,17 +57,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
   let flag = false
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', function resizeHandler() {
-      if (window.innerWidth < 1024 && !flag && collapse) {
-        setCollapse(false)
-        flag = true
-      } else if (window.innerWidth >= 1024 && flag && collapse) {
+      if (window.innerWidth < 768 && !flag && collapse) {
         setCollapse(true)
+        flag = true
+      } else if (window.innerWidth >= 768 && flag && collapse) {
+        setCollapse(false)
         flag = false
-      }
-
-      // Добавляем условие для проверки ширины окна
-      if (window.innerWidth >= 1024) {
-        setCollapse(true) // Если ширина окна больше или равна 1024px, отображаем каталог
       }
     })
   }
