@@ -27,6 +27,7 @@ import { TELEGRAM_BOT } from '../../utils/const'
 import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
 import Losa from '../../assets/images/leaf212.png'
+import Up from '../../assets/images/up.png'
 import Projects from '../../pages/projects/projects'
 
 const { Header, Sider, Content, Footer } = Layout
@@ -153,6 +154,9 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 justifyContent: 'space-between'
               }}
             >
+              <div className='absolute flex justify-center items-center w-full h-full overflow-clip'>
+                {!dark ? <img className='mb-40' src={Up}></img> : ''}
+              </div>
               {React.createElement(
                 collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
@@ -169,7 +173,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               />
               <ChangeDark style={color} dark={dark} changeDark={changeDark} />
               <div
-                className='fullscreen-btn'
+                className='fullscreen-btn z-10'
                 onClick={handleClickFullScreen}
                 title='На весь экран'
                 style={{ cursor: 'pointer' }}
