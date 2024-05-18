@@ -54,8 +54,8 @@ const Home: FC<IMenu> = ({ user }) => {
   return (
     <div className='flex flex-col justify-center items-center w-full h-full'>
       <p>
-        Привет, я {user?.name}, Frontend Developer с опытом работы
-        {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}
+        Привет, я {user?.name}, Frontend Developer с опытом работы&nbsp;
+        {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
       </p>
       <Button
