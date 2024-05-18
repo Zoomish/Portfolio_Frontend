@@ -1,15 +1,23 @@
 import { FC } from 'react'
 import ImageNoPhoto from '../../assets/images/no_photo.png'
 import { TProject } from '../../utils/typesFromBackend'
+import { useHistory } from 'react-router'
 
 interface IProject {
   project: TProject
 }
-const Project: FC<IProject> = ({ project }) => {
+const ProjectView: FC<IProject> = ({ project }) => {
+  const history = useHistory()
   console.log(project)
 
+  const getProject = (): void => {
+    history.push(`${project.id}`)
+  }
   return (
-    <div className='flex flex-col border w-60 h-fit rounded cursor-pointer'>
+    <div
+      className='flex flex-col border w-60 h-fit rounded cursor-pointer'
+      onClick={getProject}
+    >
       <img
         src={project.image}
         className='w-full h-40 object-fill'
@@ -29,4 +37,4 @@ const Project: FC<IProject> = ({ project }) => {
   )
 }
 
-export default Project
+export default ProjectView
