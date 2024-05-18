@@ -156,13 +156,13 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 justifyContent: 'space-between'
               }}
             >
-              <div className='absolute flex justify-center items-center w-full h-full overflow-clip'>
+              <div className='absolute flex justify-center items-center w-full h-full -left-5 overflow-clip'>
                 {!dark ? <img className='mb-40' src={Up}></img> : ''}
               </div>
               {React.createElement(
                 collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
-                  className: 'trigger',
+                  className: 'trigger z-10',
                   onClick: handleToggle,
                   style: color
                 }
