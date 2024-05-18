@@ -53,7 +53,7 @@ const Home: FC<IMenu> = ({ user, dark }) => {
     }
   }
   return (
-    <div className='flex flex-col justify-center items-center w-full h-full relative mb-60'>
+    <div className='flex flex-col justify-center items-center w-full h-full relative mb-60 z-10'>
       <p className='text-4xl text-center'>Привет, меня зовут {user?.name}</p>
       <span className='text-3xl text-center text-nowrap bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-5 mt-2 px-2 py-1 rounded text-white'>
         Frontend Developer
