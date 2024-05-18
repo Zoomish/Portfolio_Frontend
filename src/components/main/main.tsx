@@ -26,6 +26,7 @@ import ChangeDark from '../change-dark-mode/change-dark-mode'
 import { TELEGRAM_BOT } from '../../utils/const'
 import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
+import Projects from '../../pages/projects/projects'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -178,6 +179,19 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <Route path={`/:${pathRest}/home`} exact>
                   {user ? (
                     <Home
+                      dark={dark}
+                      pathRest={pathRest}
+                      t={t}
+                      language={language}
+                      user={user}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </Route>
+                <Route path={`/:${pathRest}/home`} exact>
+                  {user ? (
+                    <Projects
                       dark={dark}
                       pathRest={pathRest}
                       t={t}
