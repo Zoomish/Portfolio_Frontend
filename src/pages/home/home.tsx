@@ -54,7 +54,11 @@ const Home: FC<IMenu> = ({ user }) => {
   return (
     <div className='flex flex-col justify-start items-center w-full h-full'>
       <p className='text-xl text-center'>
-        Привет, я {user?.name}, Frontend Developer с опытом работы&nbsp;
+        Привет, я {user?.name},{' '}
+        <span className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>
+          Frontend Developer
+        </span>
+        с опытом работы&nbsp;
         {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
       </p>
