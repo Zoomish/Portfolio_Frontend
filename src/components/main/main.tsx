@@ -64,10 +64,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
   let flag = false
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', function resizeHandler() {
-      if (window.innerWidth < 768 && !flag) {
+      if (window.innerWidth < 1024 && !flag) {
         setCollapse(true)
         flag = true
-      } else if (window.innerWidth >= 768 && flag) {
+      } else if (window.innerWidth >= 1024 && flag) {
         setCollapse(false)
         flag = false
       }
@@ -75,7 +75,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   }
   useEffect(() => {
     setDark(Boolean(localStorage.getItem('dark')))
-    window.innerWidth <= 760 ? setCollapse(true) : setCollapse(false)
+    window.innerWidth <= 1024 ? setCollapse(true) : setCollapse(false)
   }, [])
 
   const handleToggle = (event: any): void => {
