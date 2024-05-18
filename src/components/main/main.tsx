@@ -23,6 +23,7 @@ import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
 import ChangeDark from '../change-dark-mode/change-dark-mode'
+import { TELEGRAM_BOT } from '../../utils/const'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -190,7 +191,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </Switch>
               <FloatButton
                 icon={<RobotOutlined />}
-                href='https://t.me/ZoomishBot'
+                href={TELEGRAM_BOT}
                 target='_blank'
                 type='primary'
                 className='w-12 h-12 flex justify-center'
