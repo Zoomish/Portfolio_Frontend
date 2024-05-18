@@ -130,10 +130,14 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <>
                   <img className='w-20' src={Losa}></img>
                   <img className='w-20 absolute top-40' src={Losa}></img>
-                  <img className='w-20 absolute top-80' src={Losa}></img>
-                  <img className='w-20 absolute top-96' src={Losa}></img>
+                  {collapse ? (<>
+                    <img className='w-20 absolute top-80' src={Losa}></img>
+                    <img className='w-20 absolute top-96' src={Losa}></img>
+                    <img className='w-20 absolute bottom-20' src={Losa}></img></>
+                  ) : (
+                    ''
+                  )}
                   <img className='w-20 absolute bottom-40' src={Losa}></img>
-                  <img className='w-20 absolute bottom-20' src={Losa}></img>
                   <img className='w-20 absolute bottom-0' src={Losa}></img>
                 </>
               ) : (
@@ -162,7 +166,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
               <div className='absolute flex justify-center items-center w-full h-full -left-5 overflow-clip'>
                 {!dark ? (
                   <>
-                    <img className='mb-40 w-[817px] max-w-screen-2xl h-60' src={Up}></img>
+                    <img
+                      className='mb-40 w-[817px] max-w-screen-2xl h-60'
+                      src={Up}
+                    ></img>
                     <img className='mb-40 w-[817px] h-60' src={Up}></img>
                     <img className='mb-40 w-[817px] h-60' src={Up}></img>
                   </>
