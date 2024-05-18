@@ -3,6 +3,7 @@ import { ECountry, TUser } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router-dom'
 import { Button } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
+import HeaderPhoto from '../../assets/images/header-bg.png'
 
 interface IMenu {
   pathRest: string
@@ -53,7 +54,7 @@ const Home: FC<IMenu> = ({ user }) => {
   }
   return (
     <div className='flex flex-col justify-start items-center w-full h-full'>
-      <img src={'../../assets/images/header-bg.png'} className='absolute'></img>
+      <img src={HeaderPhoto} className='absolute'></img>
       <p className='text-xl text-center'>
         Привет, я {user?.name},{' '}
         <span className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>
