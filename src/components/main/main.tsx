@@ -190,7 +190,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </Switch>
               <FloatButton
                 icon={<RobotOutlined />}
+                href='https://t.me/ZoomishBot'
+                target='_blank'
                 type='primary'
+                className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
             </Content>
