@@ -48,7 +48,7 @@ const Sidebar: FC<ISidebar> = ({ collapse, style, pathRest, t }) => {
         </Menu.Item>
         <Menu.Item key='2' onClick={handleProjectsClick}>
           <DatabaseOutlined />
-          <span>{t('contacts')}</span>
+          <span>{t('projects')}</span>
         </Menu.Item>
         <Menu.Item key='3' onClick={handleAdminsClick}>
           <ContactsOutlined />

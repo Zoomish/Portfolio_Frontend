@@ -248,5 +248,6 @@
   "password-do-not-match": "Password mismatch",
   "menu-uploaded": "Menu imported successfully",
   "main": "Home",
-  "contacts": "Contact with me"
+  "contacts": "Contact with me",
+  "projects": "My projects"
 }
