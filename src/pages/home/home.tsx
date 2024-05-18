@@ -52,8 +52,8 @@ const Home: FC<IMenu> = ({ user }) => {
     }
   }
   return (
-    <div className='flex flex-col justify-center items-center w-full h-full'>
-      <p>
+    <div className='flex flex-col justify-start items-center w-full h-full'>
+      <p className='text-xl text-center'>
         Привет, я {user?.name}, Frontend Developer с опытом работы&nbsp;
         {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
