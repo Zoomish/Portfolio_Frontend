@@ -55,7 +55,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   React.useEffect(() => {
     userApi
       .getAllUsers()
-      .then((res) => {
+      .then((res: TUser) => {
         setUser(res)
       })
       .catch((e) => openNotification(e, 'topRight'))
@@ -227,7 +227,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/projects/:projectId`} exact>
-                  <Project pathRest={pathRest} t={t} language={language} />
+                  {user?.projects ? (
+                    <Project t={t} project={user?.projects} />
+                  ) : (
+                    <></>
+                  )}
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />
