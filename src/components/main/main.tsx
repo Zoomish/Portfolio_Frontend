@@ -162,7 +162,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               {React.createElement(
                 collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
-                  className: 'trigger',
+                  className: 'trigger z-10',
                   onClick: handleToggle,
                   style: color
                 }
