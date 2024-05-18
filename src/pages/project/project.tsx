@@ -17,9 +17,7 @@ const Project: FC<IRest> = ({ t, projects }) => {
   return (
     <div className='w-full h-full flex flex-col justify-start items-center mt-20 z-10'>
       <p className='text-3xl'>{project?.title}</p>
-      <div className='w-80 h-60 flex justify-center items-center'>
-        <img src={project?.image} className='object-contain'></img>
-      </div>
+      <img src={project?.image} className='w-96 h-60'></img>
     </div>
   )
 }
