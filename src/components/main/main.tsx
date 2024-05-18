@@ -158,7 +158,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </div>
             </Header>
             <Content
-              className='flex flex-col'
+              className='flex flex-col relative'
               style={{
                 marginTop: 24,
                 padding: 0,
@@ -202,8 +202,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
-
-              <div className='absolute flex justify-end items-end overflow-clip'>
+              <div className='absolute flex justify-end items-end overflow-clip bottom-0'>
                 {dark ? (
                   <img src={HeaderPhoto}></img>
                 ) : (
