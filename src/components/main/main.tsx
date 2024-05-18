@@ -158,8 +158,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
             <Content
               style={{
                 margin: '24px 16px',
+                marginBottom: 0,
                 padding: 24,
-                minHeight: 'calc(100vh - 138px)',
+                paddingBottom: 0,
+                minHeight: 'calc(100vh - 115px)',
                 ...color
               }}
             >
@@ -173,6 +175,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <Route path={`/:${pathRest}/home`} exact>
                   {user ? (
                     <Home
+                      dark={dark}
                       pathRest={pathRest}
                       t={t}
                       language={language}
