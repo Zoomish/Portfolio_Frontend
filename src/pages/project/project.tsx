@@ -2,6 +2,8 @@
 import React, { FC } from 'react'
 import { TProject } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router'
+import { Button } from 'antd'
+import { EyeOutlined } from '@ant-design/icons'
 
 interface IRest {
   t: (arg0: string) => string
@@ -32,6 +34,7 @@ const Project: FC<IRest> = ({ t, projects }) => {
             return tag + ' '
           })}
       </p>
+      <Button type="primary" icon={<EyeOutlined />} className='flex justify-center items-center'>{t('overview')}</Button>
     </div>
   )
 }
