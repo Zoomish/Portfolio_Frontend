@@ -10,6 +10,7 @@ interface IChangeLanguage {
 const ChangeDark: FC<IChangeLanguage> = ({ style, dark, changeDark }) => {
   return (
     <Button
+    className='flex justify-center items-center'
       icon={!dark ? <MoonOutlined /> : <SunFilled />}
       onClick={() => changeDark()}
       style={{ width: '40px', ...style }}

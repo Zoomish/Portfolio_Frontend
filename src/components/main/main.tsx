@@ -2,8 +2,12 @@
 import React, { useState, useEffect, FC, useContext } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { Layout } from 'antd'
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+import { FloatButton, Layout } from 'antd'
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  RobotOutlined
+} from '@ant-design/icons'
 import fullscreenIcon from '../../assets/images/fullscreen.svg'
 import { ECountry, TUser } from '../../utils/typesFromBackend'
 import NotFound from '../../pages/not-found/not-found'
@@ -19,8 +23,11 @@ import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
 import ChangeDark from '../change-dark-mode/change-dark-mode'
+import { TELEGRAM_BOT } from '../../utils/const'
+import HeaderPhoto from '../../assets/images/header-bg.png'
+import Grass from '../../assets/images/realistic_banner_with_grass.png'
 
-const { Header, Sider, Content } = Layout
+const { Header, Sider, Content, Footer } = Layout
 
 interface IMain {
   pathRest: string
@@ -74,7 +81,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
     })
   }
   useEffect(() => {
-    setDark(Boolean(localStorage.getItem('dark')))
+    setDark(localStorage.getItem('dark') === 'true')
     window.innerWidth <= 1024 ? setCollapse(true) : setCollapse(false)
   }, [])
 
@@ -110,9 +117,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
             <Sidebar style={color} pathRest={pathRest} t={t} />
           </Sider>
           <Layout
+            className='relative'
             style={{
               ...color,
-              paddingLeft: '30px',
+              paddingLeft: '10px',
               paddingRight: '30px'
             }}
           >
@@ -151,10 +159,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </div>
             </Header>
             <Content
+              className='flex flex-col relative'
               style={{
-                margin: '24px 16px',
-                padding: 24,
-                minHeight: 'calc(100vh - 114px)',
+                marginTop: 24,
+                padding: 0,
+                paddingBottom: 0,
+                minHeight: 'calc(100vh - 115px)',
                 ...color
               }}
             >
@@ -168,6 +178,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <Route path={`/:${pathRest}/home`} exact>
                   {user ? (
                     <Home
+                      dark={dark}
                       pathRest={pathRest}
                       t={t}
                       language={language}
@@ -184,9 +195,33 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   <NotFound t={t} />
                 </Route>
               </Switch>
+              <FloatButton
+                icon={<RobotOutlined />}
+                href={TELEGRAM_BOT}
+                target='_blank'
+                type='primary'
+                className='w-12 h-12 flex justify-center'
+                style={{ right: 24 }}
+              />
             </Content>
+            <div className='absolute flex justify-end items-end overflow-clip bottom-0'>
+              {dark ? (
+                <img src={HeaderPhoto}></img>
+              ) : (
+                <>
+                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
+                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
+                </>
+              )}
+            </div>
           </Layout>
         </Layout>
+        <Footer style={{ ...color, paddingBottom: '2px' }}>
+          <div className='border-t flex justify-center'>
+            Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
+            reserved.
+          </div>
+        </Footer>
       </Router>
     </NotificationProvider>
   )
