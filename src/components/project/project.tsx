@@ -5,10 +5,22 @@ interface IProject {
   project: TProject
 }
 const Project: FC<IProject> = ({ project }) => {
+  console.log(project)
+
   return (
-    <>
-      <div>AAA</div>
-    </>
+    <div className='flex flex-col border w-fit h-fit rounded'>
+      <img src={project.image} className='w-60 h-40' />
+      <p className='text-center text-sm'>{project.title}</p>
+      <p className='text-center text-sm'>
+        {project.tags
+          .replaceAll(' ', '')
+          .split(',')
+          .map((tag) => {
+            return tag + ' '
+          })
+          .join(' ')}
+      </p>
+    </div>
   )
 }
 
