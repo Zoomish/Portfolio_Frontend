@@ -195,13 +195,13 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/projects`} exact>
-                  {user ? (
+                  {user?.projects ? (
                     <Projects
                       dark={dark}
                       pathRest={pathRest}
                       t={t}
                       language={language}
-                      user={user}
+                      projects={user.projects}
                     />
                   ) : (
                     <></>

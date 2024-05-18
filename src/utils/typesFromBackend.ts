@@ -14,6 +14,18 @@ export interface TUser {
   work: TCity
   skills: string
   portfolio: string
+  projects: TProject[]
+}
+
+export interface TProject {
+  id: string
+  title: string
+  description: string
+  email: string
+  image: string
+  tags: string
+  repository: TCity
+  live: string
 }
 export interface TOrder {
   _id: string
