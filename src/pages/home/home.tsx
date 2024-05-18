@@ -17,7 +17,16 @@ const Home: FC<IMenu> = ({ user }) => {
     window.localStorage.setItem('initialRoute', currentPath)
   }, [])
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>{user?.name}</div>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <a
+        href='https://drive.google.com/uc?export=download&id=17lSIxgIi6vfyyz_VfC95nR169hy639FC'
+        className='btn'
+        download
+      >
+        Download CV
+      </a>
+      {user?.name}
+    </div>
   )
 }
 export default Home
