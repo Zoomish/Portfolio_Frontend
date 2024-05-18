@@ -53,16 +53,16 @@ const Home: FC<IMenu> = ({ user, dark }) => {
     }
   }
   return (
-    <div className='flex flex-col justify-center items-center w-full h-full relative mb-20'>
-      <p className='text-xl text-center mb-6'>
-        Привет, я {user?.name},{' '}
-        <span className='text-nowrap bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>
-          Frontend Developer
-        </span>
-        с опытом работы&nbsp;
+    <div className='flex flex-col justify-center items-center w-full h-full relative mb-60 z-10'>
+      <p className='text-4xl text-center'>Привет, меня зовут {user?.name}</p>
+      <span className='text-3xl text-center text-nowrap bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-5 mt-2 px-2 py-1 rounded text-white'>
+        Frontend Developer
+      </span>
+      <p className='text-2xl text-center mb-1'>Мой опыт работы</p>
+      <span className='mb-6 text-2xl text-nowrap bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded text-white px-2 py-1'>
         {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
-      </p>
+      </span>
       <Button
         type='primary'
         className='flex items-center'

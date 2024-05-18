@@ -26,6 +26,9 @@ import ChangeDark from '../change-dark-mode/change-dark-mode'
 import { TELEGRAM_BOT } from '../../utils/const'
 import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
+import Losa from '../../assets/images/leaf212.png'
+import Up from '../../assets/images/up.png'
+import Projects from '../../pages/projects/projects'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -109,12 +112,31 @@ const Main: FC<IMain> = ({ pathRest }) => {
           <Sider
             trigger={null}
             collapsible
+            className='relative'
             collapsedWidth='50'
             collapsed={collapse}
             style={color}
             width={'13rem'}
           >
-            <Sidebar style={color} pathRest={pathRest} t={t} />
+            <Sidebar
+              dark={dark}
+              collapse={collapse}
+              style={color}
+              pathRest={pathRest}
+              t={t}
+            />
+            <div className='absolute flex flex-col justify-start items-end w-full h-full overflow-clip top-0 left-1'>
+              {!dark ? (
+                <>
+                  <img className='w-20' src={Losa}></img>
+                  <img className='w-20 absolute top-40' src={Losa}></img>
+                  <img className='w-20 absolute top-80' src={Losa}></img>
+                  <img className='w-20 absolute bottom-0' src={Losa}></img>
+                </>
+              ) : (
+                ''
+              )}
+            </div>
           </Sider>
           <Layout
             className='relative'
@@ -134,6 +156,9 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 justifyContent: 'space-between'
               }}
             >
+              <div className='absolute flex justify-center items-center w-full h-full overflow-clip'>
+                {!dark ? <img className='mb-40' src={Up}></img> : ''}
+              </div>
               {React.createElement(
                 collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
@@ -150,7 +175,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               />
               <ChangeDark style={color} dark={dark} changeDark={changeDark} />
               <div
-                className='fullscreen-btn'
+                className='fullscreen-btn z-10'
                 onClick={handleClickFullScreen}
                 title='На весь экран'
                 style={{ cursor: 'pointer' }}
@@ -188,6 +213,19 @@ const Main: FC<IMain> = ({ pathRest }) => {
                     <></>
                   )}
                 </Route>
+                <Route path={`/:${pathRest}/projects`} exact>
+                  {user?.projects ? (
+                    <Projects
+                      dark={dark}
+                      pathRest={pathRest}
+                      t={t}
+                      language={language}
+                      projects={user.projects}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </Route>
                 <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
                   <Restaurant pathRest={pathRest} t={t} language={language} />
                 </Route>
@@ -203,8 +241,8 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
-              <div className='absolute flex justify-center items-center w-full h-full overflow-clip bottom-0'>
-                {dark ? <img src={HeaderPhoto}></img> : ''}
+              <div className='absolute flex justify-center items-center w-full h-full overflow-clip'>
+                {dark ? <img className='mb-40' src={HeaderPhoto}></img> : ''}
               </div>
             </Content>
           </Layout>
