@@ -228,7 +228,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 </Route>
                 <Route path={`/:${pathRest}/projects/:projectId`} exact>
                   {user?.projects ? (
-                    <Project t={t} project={user?.projects} />
+                    <Project t={t} projects={user?.projects} />
                   ) : (
                     <></>
                   )}
