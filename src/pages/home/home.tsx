@@ -18,9 +18,46 @@ const Home: FC<IMenu> = ({ user }) => {
     const currentPath = location.pathname
     window.localStorage.setItem('initialRoute', currentPath)
   }, [])
+  const expirience = Math.ceil(
+    (new Date(new Date().toISOString().split('T')[0]).getTime() -
+      new Date(user.expirience).getTime()) /
+      (1000 * 60 * 60 * 24 * 30)
+  )
+  const age = (age: number): string => {
+    let txt
+    let count = age % 100
+    if (count >= 5 && count <= 20) {
+      txt = 'лет'
+    } else {
+      count = count % 10
+      if (count === 1) {
+        txt = 'год'
+      } else if (count >= 2 && count <= 4) {
+        txt = 'года'
+      } else {
+        txt = 'лет'
+      }
+    }
+    return txt
+  }
+  const month = (month: number): string => {
+    if (month === 1) {
+      return 'месяц'
+    }
+    if (month > 1 && month < 5) {
+      return 'месяца'
+    }
+    if (month > 4) {
+      return 'месяцев'
+    }
+  }
   return (
     <div className='flex flex-col justify-center items-center w-full h-full'>
-      <p>{user?.name}</p>
+      <p>
+        Привет, я {user?.name}, Frontend Developer с опытом работы
+        {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}
+        {expirience % 12} {month(expirience % 12)}
+      </p>
       <Button
         type='primary'
         className='flex items-center'
