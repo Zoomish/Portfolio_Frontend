@@ -11,8 +11,9 @@ interface ISidebar {
   pathRest: string
   t: (arg0: string) => string
   style: any
+  collapse: boolean
 }
-const Sidebar: FC<ISidebar> = ({ style, pathRest, t }) => {
+const Sidebar: FC<ISidebar> = ({ collapse, style, pathRest, t }) => {
   const history = useHistory()
   const handleHomeClick = (): void => {
     history.push(`/${pathRest}/home`)
@@ -27,7 +28,13 @@ const Sidebar: FC<ISidebar> = ({ style, pathRest, t }) => {
   return (
     <>
       <div className='h-8 m-4 text-xl text-center'>
-        Zoomish <span className='font-medium'>Portfolio</span>
+        {!collapse ? (
+          <p>
+            Zoomish <span className='font-medium'>Portfolio</span>
+          </p>
+        ) : (
+          <span className='font-medium'>Z</span>
+        )}
       </div>
       <Menu
         theme='light'

@@ -115,7 +115,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             style={color}
             width={'13rem'}
           >
-            <Sidebar style={color} pathRest={pathRest} t={t} />
+            <Sidebar collapse={collapse} style={color} pathRest={pathRest} t={t} />
           </Sider>
           <Layout
             className='relative'
