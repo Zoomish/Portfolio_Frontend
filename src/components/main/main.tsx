@@ -117,6 +117,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             <Sidebar style={color} pathRest={pathRest} t={t} />
           </Sider>
           <Layout
+            className='relative'
             style={{
               ...color,
               paddingLeft: '10px',
@@ -202,17 +203,17 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
-              <div className='absolute flex justify-end items-end overflow-clip bottom-0'>
-                {dark ? (
-                  <img src={HeaderPhoto}></img>
-                ) : (
-                  <>
-                    <img src={Grass} className={'object-contain w-full h-40'} />
-                    <img src={Grass} className={'object-contain w-full h-40'} />
-                  </>
-                )}
-              </div>
             </Content>
+            <div className='absolute flex justify-end items-end overflow-clip bottom-0'>
+              {dark ? (
+                <img src={HeaderPhoto}></img>
+              ) : (
+                <>
+                  <img src={Grass} className={'object-contain w-full h-40'} />
+                  <img src={Grass} className={'object-contain w-full h-40'} />
+                </>
+              )}
+            </div>
           </Layout>
         </Layout>
         <Footer style={{ ...color, paddingBottom: '2px' }}>
