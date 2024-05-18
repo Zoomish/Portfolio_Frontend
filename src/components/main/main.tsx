@@ -20,7 +20,7 @@ import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
 import ChangeDark from '../change-dark-mode/change-dark-mode'
 
-const { Header, Sider, Content } = Layout
+const { Header, Sider, Content, Footer } = Layout
 
 interface IMain {
   pathRest: string
@@ -154,7 +154,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               style={{
                 margin: '24px 16px',
                 padding: 24,
-                minHeight: 'calc(100vh - 114px)',
+                minHeight: 'calc(100vh - 140px)',
                 ...color
               }}
             >
@@ -187,6 +187,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
             </Content>
           </Layout>
         </Layout>
+        <Footer style={color}>
+          <div id='footerLinks'>
+            Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
+            reserved.
+          </div>
+        </Footer>
       </Router>
     </NotificationProvider>
   )
