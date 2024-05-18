@@ -16,7 +16,7 @@ import { NotificationProvider } from '../notification-provider/notification-prov
 import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
-import Restaurant from '../../pages/project/project'
+import Project from '../../pages/project/project'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
@@ -28,7 +28,7 @@ import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
 import Losa from '../../assets/images/leaf212.png'
 import Up from '../../assets/images/up.png'
-import Projects from '../../pages/projects/projects'
+import Projects from '../../pages/projects/projectss'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -227,7 +227,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
-                  <Restaurant pathRest={pathRest} t={t} language={language} />
+                  <Project pathRest={pathRest} t={t} language={language} />
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />
