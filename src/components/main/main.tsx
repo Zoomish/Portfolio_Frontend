@@ -2,8 +2,12 @@
 import React, { useState, useEffect, FC, useContext } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { Layout } from 'antd'
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+import { FloatButton, Layout } from 'antd'
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  RobotOutlined
+} from '@ant-design/icons'
 import fullscreenIcon from '../../assets/images/fullscreen.svg'
 import { ECountry, TUser } from '../../utils/typesFromBackend'
 import NotFound from '../../pages/not-found/not-found'
@@ -184,6 +188,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   <NotFound t={t} />
                 </Route>
               </Switch>
+              <FloatButton
+                icon={<RobotOutlined />}
+                type='primary'
+                style={{ right: 24 }}
+              />
             </Content>
           </Layout>
         </Layout>
