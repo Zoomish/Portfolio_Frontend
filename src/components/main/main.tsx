@@ -74,7 +74,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
     })
   }
   useEffect(() => {
-    setDark(Boolean(localStorage.getItem('dark')))
+    setDark(localStorage.getItem('dark') === 'true')
     window.innerWidth <= 1024 ? setCollapse(true) : setCollapse(false)
   }, [])
 
