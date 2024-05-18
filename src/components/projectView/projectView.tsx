@@ -1,17 +1,16 @@
 import { FC } from 'react'
 import ImageNoPhoto from '../../assets/images/no_photo.png'
 import { TProject } from '../../utils/typesFromBackend'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 
 interface IProject {
   project: TProject
 }
 const ProjectView: FC<IProject> = ({ project }) => {
   const history = useHistory()
-  console.log(project)
-
+  const location = useLocation()
   const getProject = (): void => {
-    history.push(`${project.id}`)
+    history.push(`${location.pathname}/${project.id}`)
   }
   return (
     <div

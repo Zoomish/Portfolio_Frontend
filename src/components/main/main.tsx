@@ -226,7 +226,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                     <></>
                   )}
                 </Route>
-                <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
+                <Route path={`/:${pathRest}/projects/:projectId`} exact>
                   <Project pathRest={pathRest} t={t} language={language} />
                 </Route>
                 <Route path='*'>
