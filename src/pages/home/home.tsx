@@ -54,12 +54,14 @@ const Home: FC<IMenu> = ({ user, dark }) => {
   }
   return (
     <div className='flex flex-col justify-center items-center w-full h-full relative mb-20'>
-      <p className='text-xl text-center mb-6'>
-        Привет, я {user?.name},{' '}
+      <p className='text-2xl text-center mb-6'>
+        Привет, я {user?.name}<br></br>
         <span className='text-nowrap bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>
           Frontend Developer
         </span>
-        с опытом работы&nbsp;
+      </p>
+      <p className='text-xl text-left mb-6'>
+        Мой опыт работы&nbsp;
         {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
       </p>
