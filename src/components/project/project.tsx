@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import ImageNoPhoto from '../../assets/images/no_photo.png'
 import { TProject } from '../../utils/typesFromBackend'
 
 interface IProject {
@@ -9,7 +10,11 @@ const Project: FC<IProject> = ({ project }) => {
 
   return (
     <div className='flex flex-col border w-60 h-fit rounded cursor-pointer'>
-      <img src={project.image} className='w-full h-40 object-fill' />
+      <img
+        src={project.image}
+        className='w-full h-40 object-fill'
+        onError={(e) => (e.currentTarget.src = ImageNoPhoto)}
+      />
       <p className='text-center text-sm'>{project.title}</p>
       <p className='text-center text-sm'>
         {project.tags
