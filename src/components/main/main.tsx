@@ -154,7 +154,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               style={{
                 margin: '24px 16px',
                 padding: 24,
-                minHeight: 'calc(100vh - 134px)',
+                minHeight: 'calc(100vh - 138px)',
                 ...color
               }}
             >
@@ -187,8 +187,8 @@ const Main: FC<IMain> = ({ pathRest }) => {
             </Content>
           </Layout>
         </Layout>
-        <Footer style={{ ...color, paddingBottom: '4px' }}>
-          <div className='border'>
+        <Footer style={{ ...color, paddingBottom: '2px' }}>
+          <div className='border-t flex justify-center'>
             Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
             reserved.
           </div>
