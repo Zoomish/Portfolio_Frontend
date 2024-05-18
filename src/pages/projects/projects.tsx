@@ -20,8 +20,11 @@ const Projects: FC<IMenu> = ({ projects, dark }) => {
     window.localStorage.setItem('initialRoute', currentPath)
   }, [])
   return (
-    <div className='flex flex-col justify-center items-center w-full h-full relative mb-60'>
-      AAA
+    <div className='flex flex-col justify-center w-full h-full'>
+      <p className='text-3xl text-center mb-20'>Мои проекты</p>
+      <div className='flex justify-center w-full h-full relative'>
+        AAA
+      </div>
     </div>
   )
 }
