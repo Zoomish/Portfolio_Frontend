@@ -17,7 +17,8 @@ const Home: FC<IMenu> = ({ user }) => {
     window.localStorage.setItem('initialRoute', currentPath)
   }, [])
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className='flex flex-col justify-center items-center w-full h-full'>
+      <p>{user?.name}</p>
       <a
         href='https://drive.google.com/uc?export=download&id=17lSIxgIi6vfyyz_VfC95nR169hy639FC'
         className='btn'
@@ -25,7 +26,6 @@ const Home: FC<IMenu> = ({ user }) => {
       >
         Download CV
       </a>
-      {user?.name}
     </div>
   )
 }
