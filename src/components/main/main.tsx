@@ -115,7 +115,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
             style={color}
             width={'13rem'}
           >
-            <Sidebar collapse={collapse} style={color} pathRest={pathRest} t={t} />
+            <Sidebar
+              collapse={collapse}
+              style={color}
+              pathRest={pathRest}
+              t={t}
+            />
           </Sider>
           <Layout
             className='relative'
@@ -217,8 +222,8 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
-              <div className='absolute flex justify-center items-center w-full h-full overflow-clip bottom-0'>
-                {dark ? <img src={HeaderPhoto}></img> : ''}
+              <div className='absolute flex justify-center items-center w-full h-full overflow-clip'>
+                {dark ? <img className='mb-40' src={HeaderPhoto}></img> : ''}
               </div>
             </Content>
           </Layout>
