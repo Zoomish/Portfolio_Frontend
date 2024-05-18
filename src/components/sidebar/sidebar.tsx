@@ -26,7 +26,9 @@ const Sidebar: FC<ISidebar> = ({ style, pathRest, t }) => {
 
   return (
     <>
-      <div style={{ height: '32px', margin: '16px' }}></div>
+      <div className='h-8 m-4 text-xl text-center'>
+        Zoomish <span className='font-medium'>Portfolio</span>
+      </div>
       <Menu
         theme='light'
         mode='inline'
