@@ -1,6 +1,10 @@
 import { FC } from 'react'
 import { Menu } from 'antd'
-import { UserOutlined, ContactsOutlined } from '@ant-design/icons'
+import {
+  UserOutlined,
+  ContactsOutlined,
+  DatabaseOutlined
+} from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
 interface ISidebar {
@@ -12,6 +16,9 @@ const Sidebar: FC<ISidebar> = ({ style, pathRest, t }) => {
   const history = useHistory()
   const handleHomeClick = (): void => {
     history.push(`/${pathRest}/home`)
+  }
+  const handleProjectsClick = (): void => {
+    history.push(`/${pathRest}/projects`)
   }
   const handleAdminsClick = (): void => {
     history.push(`/${pathRest}/admins`)
@@ -30,7 +37,11 @@ const Sidebar: FC<ISidebar> = ({ style, pathRest, t }) => {
           <UserOutlined />
           <span>{t('main')}</span>
         </Menu.Item>
-        <Menu.Item key='2' onClick={handleAdminsClick}>
+        <Menu.Item key='2' onClick={handleProjectsClick}>
+          <DatabaseOutlined />
+          <span>{t('contacts')}</span>
+        </Menu.Item>
+        <Menu.Item key='3' onClick={handleAdminsClick}>
           <ContactsOutlined />
           <span>{t('contacts')}</span>
         </Menu.Item>
