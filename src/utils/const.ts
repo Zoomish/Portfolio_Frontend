@@ -1,7 +1,3 @@
-// export const BASE_URL = 'http://89.223.65.6:3000/api/v1'
 export const BASE_URL = 'https://portfolio-backend-ur7a.onrender.com'
-export const testIdRest = '632c1700641f6cf6642b2ba9'
-// export const BASE_URL_CDN = 'http://89.223.65.6:3001/cdn'
 export const BASE_URL_CDN = 'https://portfolio-backend-ur7a.onrender.com'
 export const TELEGRAM_BOT = 'https://t.me/ZoomishBot'
-export const DOMAIN_NAME = 'https://portfolio-backend-ur7a.onrender.com'
