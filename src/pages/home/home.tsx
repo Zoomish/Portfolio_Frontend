@@ -3,8 +3,6 @@ import { ECountry, TUser } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router-dom'
 import { Button } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
-import HeaderPhoto from '../../assets/images/header-bg.png'
-import Grass from '../../assets/images/realistic_banner_with_grass.png'
 
 interface IMenu {
   pathRest: string
@@ -56,16 +54,6 @@ const Home: FC<IMenu> = ({ user, dark }) => {
   }
   return (
     <div className='flex flex-col justify-start items-center w-full h-full relative'>
-      <div className='absolute w-full h-full flex justify-end items-end'>
-        {dark ? (
-          <img src={HeaderPhoto}></img>
-        ) : (
-          <img
-            src={Grass}
-            className={'object-contain bg-repeat-x bg-center w-full h-16'}
-          />
-        )}
-      </div>
       <p className='text-xl text-center'>
         Привет, я {user?.name},{' '}
         <span className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>

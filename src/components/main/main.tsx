@@ -24,6 +24,8 @@ import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
 import ChangeDark from '../change-dark-mode/change-dark-mode'
 import { TELEGRAM_BOT } from '../../utils/const'
+import HeaderPhoto from '../../assets/images/header-bg.png'
+import Grass from '../../assets/images/realistic_banner_with_grass.png'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -156,10 +158,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </div>
             </Header>
             <Content
+              className='flex flex-col'
               style={{
-                margin: '24px 16px',
-                marginBottom: 0,
-                padding: 24,
+                marginTop: 24,
+                padding: 0,
                 paddingBottom: 0,
                 minHeight: 'calc(100vh - 115px)',
                 ...color
@@ -200,6 +202,17 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
+
+              <div className='absolute flex justify-end items-end overflow-clip'>
+                {dark ? (
+                  <img src={HeaderPhoto}></img>
+                ) : (
+                  <>
+                    <img src={Grass} className={'object-contain w-full h-40'} />
+                    <img src={Grass} className={'object-contain w-full h-40'} />
+                  </>
+                )}
+              </div>
             </Content>
           </Layout>
         </Layout>
