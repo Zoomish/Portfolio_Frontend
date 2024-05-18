@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { ECountry, TProject } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router-dom'
-import Project from '../../components/project/project'
+import ProjectView from '../../components/projectView/projectView'
 
 interface IMenu {
   pathRest: string
@@ -13,9 +13,6 @@ interface IMenu {
 
 const Projects: FC<IMenu> = ({ projects, dark }) => {
   const location = useLocation()
-
-  console.log(projects)
-
   React.useEffect(() => {
     const currentPath = location.pathname
     window.localStorage.setItem('initialRoute', currentPath)
@@ -25,7 +22,7 @@ const Projects: FC<IMenu> = ({ projects, dark }) => {
       <p className='text-3xl text-center mb-10'>Мои проекты</p>
       <div className='flex justify-center flex-wrap w-full h-full gap-2 relative'>
         {projects.map((project, index) => (
-          <Project key={index} project={project}></Project>
+          <ProjectView key={index} project={project}></ProjectView>
         ))}
       </div>
     </div>

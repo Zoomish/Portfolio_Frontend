@@ -28,7 +28,7 @@ const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
 
   return (
     <>
-      <div className='h-8 m-4 text-xl text-center relative z-10'>
+      <div className='h-8 m-4 text-xl text-center relative z-10 rounded' style={style}>
         {!collapse ? (
           <p>
             Zoomish <span className='font-medium'>Portfolio</span>

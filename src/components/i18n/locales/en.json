@@ -249,5 +249,8 @@
   "menu-uploaded": "Menu imported successfully",
   "main": "Home",
   "contacts": "Contact with me",
-  "projects": "Projects"
+  "projects": "Projects",
+  "title": "Title",
+  "tehnologies": "Technologies",
+  "overview": "Overview"
 }

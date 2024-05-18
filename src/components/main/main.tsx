@@ -16,7 +16,7 @@ import { NotificationProvider } from '../notification-provider/notification-prov
 import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
-import Restaurant from '../../pages/restaurant/restaurant'
+import Project from '../../pages/project/project'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
@@ -28,7 +28,7 @@ import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
 import Losa from '../../assets/images/leaf212.png'
 import Up from '../../assets/images/up.png'
-import Projects from '../../pages/projects/projects'
+import Projects from '../../pages/projects/projectss'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -55,7 +55,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   React.useEffect(() => {
     userApi
       .getAllUsers()
-      .then((res) => {
+      .then((res: TUser) => {
         setUser(res)
       })
       .catch((e) => openNotification(e, 'topRight'))
@@ -130,7 +130,14 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <>
                   <img className='w-20' src={Losa}></img>
                   <img className='w-20 absolute top-40' src={Losa}></img>
-                  <img className='w-20 absolute top-80' src={Losa}></img>
+                  {collapse ? (<>
+                    <img className='w-20 absolute top-80' src={Losa}></img>
+                    <img className='w-20 absolute top-96' src={Losa}></img>
+                    <img className='w-20 absolute bottom-20' src={Losa}></img></>
+                  ) : (
+                    ''
+                  )}
+                  <img className='w-20 absolute bottom-40' src={Losa}></img>
                   <img className='w-20 absolute bottom-0' src={Losa}></img>
                 </>
               ) : (
@@ -157,7 +164,18 @@ const Main: FC<IMain> = ({ pathRest }) => {
               }}
             >
               <div className='absolute flex justify-center items-center w-full h-full -left-5 overflow-clip'>
-                {!dark ? <img className='mb-40' src={Up}></img> : ''}
+                {!dark ? (
+                  <>
+                    <img
+                      className='mb-40 w-[817px] max-w-screen-2xl h-60'
+                      src={Up}
+                    ></img>
+                    <img className='mb-40 w-[817px] h-60' src={Up}></img>
+                    <img className='mb-40 w-[817px] h-60' src={Up}></img>
+                  </>
+                ) : (
+                  ''
+                )}
               </div>
               {React.createElement(
                 collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
@@ -226,8 +244,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
                     <></>
                   )}
                 </Route>
-                <Route path={`/:${pathRest}/restaurant/:restaurantId`} exact>
-                  <Restaurant pathRest={pathRest} t={t} language={language} />
+                <Route path={`/:${pathRest}/projects/:projectId`} exact>
+                  {user?.projects ? (
+                    <Project t={t} projects={user?.projects} />
+                  ) : (
+                    <></>
+                  )}
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />
