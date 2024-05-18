@@ -209,8 +209,8 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <img src={HeaderPhoto}></img>
               ) : (
                 <>
-                  <img src={Grass} className={'object-contain w-full h-40'} />
-                  <img src={Grass} className={'object-contain w-full h-40'} />
+                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
+                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
                 </>
               )}
             </div>
