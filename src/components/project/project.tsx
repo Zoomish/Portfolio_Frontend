@@ -15,8 +15,8 @@ const Project: FC<IProject> = ({ project }) => {
         className='w-full h-40 object-fill'
         onError={(e) => (e.currentTarget.src = ImageNoPhoto)}
       />
-      <p className='text-center text-sm'>{project.title}</p>
-      <p className='text-center text-sm'>
+      <p className='text-center text-sm mt-2'>{project.title}</p>
+      <p className='text-center text-sm mt-1'>
         {project.tags
           .replaceAll(' ', '')
           .split(',')
