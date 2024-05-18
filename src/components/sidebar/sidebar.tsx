@@ -12,8 +12,9 @@ interface ISidebar {
   t: (arg0: string) => string
   style: any
   collapse: boolean
+  dark: boolean
 }
-const Sidebar: FC<ISidebar> = ({ collapse, style, pathRest, t }) => {
+const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
   const history = useHistory()
   const handleHomeClick = (): void => {
     history.push(`/${pathRest}/home`)
@@ -39,8 +40,8 @@ const Sidebar: FC<ISidebar> = ({ collapse, style, pathRest, t }) => {
       <Menu
         theme='light'
         mode='inline'
-        style={{ textAlign: 'left', ...style }}
-        className='relative z-10'
+        style={dark ? style : {}}
+        className='relative z-10 text-left bg-transparent'
         defaultSelectedKeys={['1']}
       >
         <Menu.Item key='1' onClick={handleHomeClick}>

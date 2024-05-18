@@ -119,6 +119,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             width={'13rem'}
           >
             <Sidebar
+              dark={dark}
               collapse={collapse}
               style={color}
               pathRest={pathRest}
