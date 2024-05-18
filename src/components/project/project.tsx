@@ -9,7 +9,7 @@ const Project: FC<IProject> = ({ project }) => {
 
   return (
     <div className='flex flex-col border w-fit h-fit rounded cursor-pointer'>
-      <img src={project.image} className='w-60 h-40' />
+      <img src={project.image} className='w-60 h-40 object-fill' />
       <p className='text-center text-sm'>{project.title}</p>
       <p className='text-center text-sm'>
         {project.tags
