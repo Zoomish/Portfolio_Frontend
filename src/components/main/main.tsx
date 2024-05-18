@@ -123,8 +123,16 @@ const Main: FC<IMain> = ({ pathRest }) => {
               pathRest={pathRest}
               t={t}
             />
-            <div className='absolute flex justify-end items-start w-full h-full overflow-clip top-0 left-5'>
-              {!dark ? <img className='w-20' src={Losa}></img> : ''}
+            <div className='absolute flex flex-col justify-start items-end w-full h-full overflow-clip top-0 left-1'>
+              {!dark ? (
+                <>
+                  <img className='w-20' src={Losa}></img>
+                  <img className='w-20 absolute top-40' src={Losa}></img>
+                  <img className='w-20 absolute top-80' src={Losa}></img>
+                </>
+              ) : (
+                ''
+              )}
             </div>
           </Sider>
           <Layout
