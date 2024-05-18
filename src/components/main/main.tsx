@@ -105,7 +105,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   return (
     <NotificationProvider>
       <Router>
-        <Layout>
+        <Layout className='relative'>
           <Sider
             trigger={null}
             collapsible
@@ -203,21 +203,39 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 className='w-12 h-12 flex justify-center'
                 style={{ right: 24 }}
               />
+              <div className='absolute flex justify-center items-center w-full h-full overflow-clip bottom-0'>
+                {dark ? <img src={HeaderPhoto}></img> : ''}
+              </div>
             </Content>
-            <div className='absolute flex justify-end items-end overflow-clip bottom-0'>
-              {dark ? (
-                <img src={HeaderPhoto}></img>
-              ) : (
-                <>
-                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
-                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
-                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
-                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
-                  <img src={Grass} className={'object-contain w-full max-h-40 min-h-20'} />
-                </>
-              )}
-            </div>
           </Layout>
+          <div className='absolute flex justify-end items-end overflow-clip bottom-0'>
+            {dark ? (
+              ''
+            ) : (
+              <>
+                <img
+                  src={Grass}
+                  className={'object-contain w-full max-h-40 min-h-20'}
+                />
+                <img
+                  src={Grass}
+                  className={'object-contain w-full max-h-40 min-h-20'}
+                />
+                <img
+                  src={Grass}
+                  className={'object-contain w-full max-h-40 min-h-20'}
+                />
+                <img
+                  src={Grass}
+                  className={'object-contain w-full max-h-40 min-h-20'}
+                />
+                <img
+                  src={Grass}
+                  className={'object-contain w-full max-h-40 min-h-20'}
+                />
+              </>
+            )}
+          </div>
         </Layout>
         <Footer style={{ ...color, paddingBottom: '2px' }}>
           <div className='border-t flex justify-center'>
