@@ -16,7 +16,7 @@ import { NotificationProvider } from '../notification-provider/notification-prov
 import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
-import Restaurant from '../../pages/restaurant/restaurant'
+import Restaurant from '../../pages/project/project'
 import Admins from '../../pages/admins/admins'
 import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
