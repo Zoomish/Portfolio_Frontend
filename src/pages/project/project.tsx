@@ -16,8 +16,22 @@ const Project: FC<IRest> = ({ t, projects }) => {
   }, [location.pathname])
   return (
     <div className='w-full h-full flex flex-col justify-start items-center mt-20 z-10'>
-      <p className='text-3xl'>{project?.title}</p>
       <img src={project?.image} className='w-[450px] h-60 object-contain'></img>
+      <p className='text-3xl'>
+        {t('title')}: {project?.title}
+      </p>
+      <p className='text-xl'>
+        {t('description')}: {project?.description}
+      </p>
+      <p className='text-xl'>
+        {t('tehnologies')}:{' '}
+        {project?.tags
+          .replaceAll(' ', '')
+          .split(',')
+          .map((tag) => {
+            return tag + ' '
+          })}
+      </p>
     </div>
   )
 }
