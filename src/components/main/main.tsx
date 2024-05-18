@@ -26,6 +26,7 @@ import ChangeDark from '../change-dark-mode/change-dark-mode'
 import { TELEGRAM_BOT } from '../../utils/const'
 import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
+import Losa from '../../assets/images/leaf212.png'
 import Projects from '../../pages/projects/projects'
 
 const { Header, Sider, Content, Footer } = Layout
@@ -110,6 +111,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
           <Sider
             trigger={null}
             collapsible
+            className='relative'
             collapsedWidth='50'
             collapsed={collapse}
             style={color}
@@ -121,6 +123,9 @@ const Main: FC<IMain> = ({ pathRest }) => {
               pathRest={pathRest}
               t={t}
             />
+            <div className='absolute flex justify-end items-start w-full h-full overflow-clip top-0 left-5'>
+              {!dark ? <img className='w-20' src={Losa}></img> : ''}
+            </div>
           </Sider>
           <Layout
             className='relative'
