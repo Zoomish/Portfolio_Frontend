@@ -102,9 +102,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
           <Sider
             trigger={null}
             collapsible
+            collapsedWidth='50'
             collapsed={collapse}
             style={color}
-            width={'17rem'}
+            width={'13rem'}
           >
             <Sidebar style={color} pathRest={pathRest} t={t} />
           </Sider>
