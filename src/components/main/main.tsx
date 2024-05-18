@@ -112,7 +112,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
           <Layout
             style={{
               ...color,
-              paddingLeft: '30px',
+              paddingLeft: '10px',
               paddingRight: '30px'
             }}
           >
