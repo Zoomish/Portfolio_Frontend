@@ -43,12 +43,12 @@ const Home: FC<IMenu> = ({ user }) => {
   const month = (month: number): string => {
     if (month === 1) {
       return 'месяц'
-    }
-    if (month > 1 && month < 5) {
+    } else if (month > 1 && month < 5) {
       return 'месяца'
-    }
-    if (month > 4) {
+    } else if (month > 4) {
       return 'месяцев'
+    } else {
+      return ''
     }
   }
   return (
