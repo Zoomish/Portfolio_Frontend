@@ -188,7 +188,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
           </Layout>
         </Layout>
         <Footer style={{ ...color, paddingBottom: '4px' }}>
-          <div className='text-3xl font-bold underline'>
+          <div className='border'>
             Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
             reserved.
           </div>
