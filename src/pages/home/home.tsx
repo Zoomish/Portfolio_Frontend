@@ -53,10 +53,10 @@ const Home: FC<IMenu> = ({ user, dark }) => {
     }
   }
   return (
-    <div className='flex flex-col justify-start items-center w-full h-full relative'>
-      <p className='text-xl text-center'>
+    <div className='flex flex-col justify-center items-center w-full h-full relative mb-20'>
+      <p className='text-xl text-center mb-6'>
         Привет, я {user?.name},{' '}
-        <span className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>
+        <span className='text-nowrap bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-2 py-1 rounded text-white'>
           Frontend Developer
         </span>
         с опытом работы&nbsp;
