@@ -27,7 +27,7 @@ const Sidebar: FC<ISidebar> = ({ collapse, style, pathRest, t }) => {
 
   return (
     <>
-      <div className='h-8 m-4 text-xl text-center'>
+      <div className='h-8 m-4 text-xl text-center relative z-10'>
         {!collapse ? (
           <p>
             Zoomish <span className='font-medium'>Portfolio</span>
@@ -40,6 +40,7 @@ const Sidebar: FC<ISidebar> = ({ collapse, style, pathRest, t }) => {
         theme='light'
         mode='inline'
         style={{ textAlign: 'left', ...style }}
+        className='relative z-10'
         defaultSelectedKeys={['1']}
       >
         <Menu.Item key='1' onClick={handleHomeClick}>
