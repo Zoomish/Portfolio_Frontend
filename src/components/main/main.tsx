@@ -130,10 +130,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <>
                   <img className='w-20' src={Losa}></img>
                   <img className='w-20 absolute top-40' src={Losa}></img>
-                  {collapse ? (<>
-                    <img className='w-20 absolute top-80' src={Losa}></img>
-                    <img className='w-20 absolute top-96' src={Losa}></img>
-                    <img className='w-20 absolute bottom-20' src={Losa}></img></>
+                  {collapse ? (
+                    <>
+                      <img className='w-20 absolute top-80' src={Losa}></img>
+                      <img className='w-20 absolute top-96' src={Losa}></img>
+                      <img className='w-20 absolute bottom-20' src={Losa}></img>
+                    </>
                   ) : (
                     ''
                   )}
