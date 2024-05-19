@@ -65,7 +65,7 @@ const Home: FC<IMenu> = ({ user, dark }) => {
       </span>
       <Button
         type='primary'
-        className='flex items-center'
+        className='flex items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'
         shape='round'
         href='https://drive.google.com/uc?export=download&id=17lSIxgIi6vfyyz_VfC95nR169hy639FC'
         icon={<DownloadOutlined />}
