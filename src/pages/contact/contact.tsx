@@ -28,15 +28,29 @@ const Contact: FC<IContact> = ({ pathRest, t, user }) => {
         </div>
         <div className='sm:w-1/2 w-full h-40 flex items-center flex-col'>
           <p className='text-xl font-normal'>{t('contact-phone-number')}</p>
-          <p className='text-base mt-3'>
-            <a href={`mailto:${user.email}?subject=Job`}>{user.email}</a>
-          </p>
+          <p className='text-base mt-3'>{user.phone}</p>
         </div>
         <div className='sm:w-1/2 w-full h-40 flex items-center flex-col'>
           <p className='text-xl font-normal'>{t('telegram')}</p>
+          <a
+            target='_blank'
+            rel='noreferrer'
+            href={`https://t.me/${user.tg}`}
+            className='text-base mt-3'
+          >
+            {user.tg}
+          </a>
         </div>
         <div className='sm:w-1/2 w-full h-40 flex items-center flex-col'>
           <p className='text-xl font-normal'>{t('telegram-bot')}</p>
+          <a
+            target='_blank'
+            rel='noreferrer'
+            href={`https://t.me/${user.tg_bot}`}
+            className='text-base mt-3'
+          >
+            {user.tg_bot}
+          </a>
         </div>
       </div>
     </div>
