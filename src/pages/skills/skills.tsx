@@ -74,7 +74,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           slidesPerView={5}
           spaceBetween={30}
           loop={true}
-          initialSlide={5}
+          initialSlide={7}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -121,7 +121,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
-          initialSlide={3}
+          initialSlide={12}
           loop={true}
           modules={[FreeMode, Autoplay]}
           autoplay={{
