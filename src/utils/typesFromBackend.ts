@@ -24,7 +24,7 @@ export interface TProject {
   email: string
   image: string
   tags: string
-  repository: TCity
+  repository: string
   live: string
 }
 export interface TOrder {
