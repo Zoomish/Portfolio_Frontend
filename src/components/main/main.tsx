@@ -61,7 +61,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
         .getAllUsers()
         .then((res: TUser) => {
           setUser(res)
-          localStorage.setItem('user', JSON.stringify(user))
+          localStorage.setItem('user', JSON.stringify(res))
         })
         .catch((e) => openNotification(e, 'topRight'))
     }
