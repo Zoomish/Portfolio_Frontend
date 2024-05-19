@@ -62,7 +62,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                   <img
                     src={skill.image}
                     alt={skill.title}
-                    className='w-10 h-10 md:w-20 md:h-20'
+                    className='w-14 h-14 md:w-20 md:h-20'
                   />
                   <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
@@ -109,7 +109,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                   <img
                     src={skill.image}
                     alt={skill.title}
-                    className='w-10 h-10 md:w-20 md:h-20'
+                    className='w-14 h-14 md:w-20 md:h-20'
                   />
                   <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
@@ -156,7 +156,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                   <img
                     src={skill.image}
                     alt={skill.title}
-                    className='w-10 h-10 md:w-20 md:h-20'
+                    className='w-14 h-14 md:w-20 md:h-20'
                   />
                   <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
