@@ -17,7 +17,7 @@ import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
 import Project from '../../pages/project/project'
-import Admins from '../../pages/admins/admins'
+import Contact from '../../pages/contact/contact'
 import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
@@ -247,7 +247,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/contact`} exact>
-                  <Admins pathRest={pathRest} t={t} language={language} />
+                  <Contact pathRest={pathRest} t={t} language={language} />
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />

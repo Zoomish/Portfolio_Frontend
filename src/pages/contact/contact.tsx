@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { ECountry } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router'
-interface IAdmins {
+interface IContact {
   pathRest: string
   t: (arg0: string) => string
   language: ECountry
 }
 
-const Admins: FC<IAdmins> = ({ pathRest, t }) => {
+const Contact: FC<IContact> = ({ pathRest, t }) => {
   const location = useLocation()
   React.useEffect(() => {
     const currentPath = location.pathname
@@ -20,4 +20,4 @@ const Admins: FC<IAdmins> = ({ pathRest, t }) => {
     </div>
   )
 }
-export default Admins
+export default Contact
