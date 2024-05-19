@@ -4,6 +4,7 @@ import { TProject } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router'
 import { Button } from 'antd'
 import { EyeOutlined, GithubOutlined } from '@ant-design/icons'
+import ImageNoPhoto from '../../assets/images/no_photo.png'
 
 interface IRest {
   t: (arg0: string) => string
@@ -21,6 +22,7 @@ const Project: FC<IRest> = ({ t, projects }) => {
       <div className='flex flex-col justify-start items-center gap-1'>
         <img
           src={project?.image}
+          onError={(e) => (e.currentTarget.src = ImageNoPhoto)}
           className='w-[450px] h-60 object-contain'
         ></img>
         <p className='text-3xl'>
