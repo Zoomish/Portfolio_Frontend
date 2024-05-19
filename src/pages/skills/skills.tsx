@@ -28,6 +28,56 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           spaceBetween={30}
           loop={true}
           modules={[FreeMode]}
+          className='w-full h-40 flex items-center justify-center'
+        >
+          {skills.map((skill: TSkill, index) => {
+            return (
+              <SwiperSlide
+                key={index}
+                className='flex justify-center items-center flex-col '
+              >
+                <div className='flex justify-center items-center flex-col w-40 h-40'>
+                  <img
+                    src={skill.image}
+                    alt={skill.title}
+                    className='w-20 h-20'
+                  />
+                  <p className='text-2xl'>{skill.title}</p>
+                </div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+        <Swiper
+          slidesPerView={5}
+          spaceBetween={30}
+          loop={true}
+          modules={[FreeMode]}
+          className='w-full h-40 flex items-center justify-center'
+        >
+          {skills.map((skill: TSkill, index) => {
+            return (
+              <SwiperSlide
+                key={index}
+                className='flex justify-center items-center flex-col '
+              >
+                <div className='flex justify-center items-center flex-col w-40 h-40'>
+                  <img
+                    src={skill.image}
+                    alt={skill.title}
+                    className='w-20 h-20'
+                  />
+                  <p className='text-2xl'>{skill.title}</p>
+                </div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+        <Swiper
+          slidesPerView={5}
+          spaceBetween={30}
+          loop={true}
+          modules={[FreeMode]}
           className='w-full h-40 flex items-center justify-center mb-40'
         >
           {skills.map((skill: TSkill, index) => {
@@ -37,7 +87,11 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                 className='flex justify-center items-center flex-col '
               >
                 <div className='flex justify-center items-center flex-col w-40 h-40'>
-                  <img src={skill.image} alt={skill.title} className='w-20 h-20' />
+                  <img
+                    src={skill.image}
+                    alt={skill.title}
+                    className='w-20 h-20'
+                  />
                   <p className='text-2xl'>{skill.title}</p>
                 </div>
               </SwiperSlide>
