@@ -50,7 +50,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
               slidesPerView: 5
             }
           }}
-          className='w-full h-20 md:h-40 flex items-center justify-center mb-40'
+          className='w-full h-20 md:h-40 flex items-center justify-center'
         >
           {skills.map((skill: TSkill, index) => {
             return (
@@ -97,7 +97,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
               slidesPerView: 5
             }
           }}
-          className='w-full h-20 md:h-40 flex items-center justify-center mb-40'
+          className='w-full h-20 md:h-40 flex items-center justify-center'
         >
           {skills.map((skill: TSkill, index) => {
             return (
