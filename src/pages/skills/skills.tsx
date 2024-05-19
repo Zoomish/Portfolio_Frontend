@@ -28,7 +28,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           spaceBetween={30}
           loop={true}
           modules={[FreeMode]}
-          className='w-full h-40 flex items-center justify-center mb-40'
+          className='w-full h-60 flex items-center justify-center mb-40'
         >
           {skills.map((skill: TSkill, index) => {
             return (
@@ -36,8 +36,8 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                 key={index}
                 className='flex justify-center items-center flex-col '
               >
-                <div className='flex justify-center items-center flex-col w-40 h-40'>
-                  <img src={skill.image} alt={skill.title} />
+                <div className='flex justify-center items-center flex-col w-60 h-60'>
+                  <img src={skill.image} alt={skill.title} className='w-40 h-40' />
                   <p className='text-2xl'>{skill.title}</p>
                 </div>
               </SwiperSlide>
