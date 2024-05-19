@@ -37,7 +37,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
             0: {
               slidesPerView: 1
             },
-            490: {
+            370: {
               slidesPerView: 2
             },
             510: {
@@ -85,7 +85,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
             0: {
               slidesPerView: 1
             },
-            490: {
+            370: {
               slidesPerView: 2
             },
             510: {
@@ -132,7 +132,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
             0: {
               slidesPerView: 1
             },
-            490: {
+            370: {
               slidesPerView: 2
             },
             510: {
