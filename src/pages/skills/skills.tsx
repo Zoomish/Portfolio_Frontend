@@ -3,9 +3,9 @@ import { ECountry, TSkill } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import { FreeMode } from 'swiper/modules'
+import 'swiper/css/autoplay'
+import 'swiper/css/free-mode'
+import { FreeMode, Autoplay } from 'swiper/modules'
 
 interface ISkill {
   t: (arg0: string) => string
@@ -27,7 +27,12 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           slidesPerView={5}
           spaceBetween={30}
           loop={true}
-          modules={[FreeMode]}
+          initialSlide={Math.floor(Math.random() * skills.length)}
+          modules={[FreeMode, Autoplay]}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false
+          }}
           className='w-full h-40 flex items-center justify-center'
         >
           {skills.map((skill: TSkill, index) => {
@@ -52,7 +57,13 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           slidesPerView={5}
           spaceBetween={30}
           loop={true}
-          modules={[FreeMode]}
+          initialSlide={Math.floor(Math.random() * skills.length)}
+          modules={[FreeMode, Autoplay]}
+          autoplay={{
+            delay: 2000,
+            reverseDirection: true,
+            disableOnInteraction: false
+          }}
           className='w-full h-40 flex items-center justify-center'
         >
           {skills.map((skill: TSkill, index) => {
@@ -76,8 +87,13 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
+          initialSlide={Math.floor(Math.random() * skills.length)}
           loop={true}
-          modules={[FreeMode]}
+          modules={[FreeMode, Autoplay]}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false
+          }}
           className='w-full h-40 flex items-center justify-center mb-40'
         >
           {skills.map((skill: TSkill, index) => {
