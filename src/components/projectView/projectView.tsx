@@ -26,7 +26,7 @@ const ProjectView: FC<IProject> = ({ project, dark }) => {
         onError={(e) => (e.currentTarget.src = ImageNoPhoto)}
       />
       <div className='flex flex-col justify-start h-full'>
-        <p className='text-center text-xl font-medium'>{project.title}</p>
+        <p className='text-center text-xl font-medium mt-1'>{project.title}</p>
         <p className='text-center text-sm mt-3'>
           {project.tags
             .replaceAll(' ', '')
