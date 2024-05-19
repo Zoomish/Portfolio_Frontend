@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { TProject } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router'
 import { Button } from 'antd'
-import { EyeOutlined } from '@ant-design/icons'
+import { EyeOutlined, GithubOutlined } from '@ant-design/icons'
 
 interface IRest {
   t: (arg0: string) => string
@@ -48,7 +48,7 @@ const Project: FC<IRest> = ({ t, projects }) => {
           </Button>
           <Button
             type='primary'
-            icon={<EyeOutlined />}
+            icon={<GithubOutlined />}
             className='flex justify-center items-center bg-gradient-to-r from-emerald-500 from-10% via-sky-500 via-30% to-indigo-500 to-90%'
           >
             {t('overview')}
