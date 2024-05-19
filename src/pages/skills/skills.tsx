@@ -31,7 +31,6 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
-            pauseOnMouseEnter: true,
             disableOnInteraction: false
           }}
           className='w-full h-40 flex items-center justify-center'
@@ -62,7 +61,6 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
-            pauseOnMouseEnter: true,
             reverseDirection: true,
             disableOnInteraction: false
           }}
@@ -94,7 +92,6 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
-            pauseOnMouseEnter: true,
             disableOnInteraction: false
           }}
           className='w-full h-40 flex items-center justify-center mb-40'
