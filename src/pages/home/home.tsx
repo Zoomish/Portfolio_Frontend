@@ -61,7 +61,7 @@ const Home: FC<IMenu> = ({ user, t }) => {
         {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
       </span>
-      <p className='text-2xl text-center'>Работаю в</p>
+      <p className='text-2xl text-center'>{t('work_in')}</p>
       <a
         target='_blank'
         rel='noreferrer'
