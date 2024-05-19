@@ -226,17 +226,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             >
               <Switch>
                 <Route path={`/:${pathRest}/home`} exact>
-                  {user ? (
-                    <Home
-                      dark={dark}
-                      pathRest={pathRest}
-                      t={t}
-                      language={language}
-                      user={user}
-                    />
-                  ) : (
-                    <></>
-                  )}
+                  {user ? <Home t={t} user={user} /> : <></>}
                 </Route>
                 <Route path={`/:${pathRest}/projects`} exact>
                   {user?.projects ? (
@@ -260,7 +250,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 </Route>
                 <Route path={`/:${pathRest}/contact`} exact>
                   {user ? (
-                    <Contact pathRest={pathRest} user={user} t={t} language={language} />
+                    <Contact
+                      pathRest={pathRest}
+                      user={user}
+                      t={t}
+                      language={language}
+                    />
                   ) : (
                     <></>
                   )}
