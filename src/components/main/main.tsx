@@ -62,7 +62,10 @@ const Main: FC<IMain> = ({ pathRest }) => {
         .getAllUsers()
         .then((res: TUser) => {
           setUser(res)
-          localStorage.setItem('deleteTime', String(+new Date() + 3600 * 1000))
+          localStorage.setItem(
+            'deleteTime',
+            String(+new Date() + 3600 * 1000 * 24)
+          )
           localStorage.setItem('user', JSON.stringify(res))
         })
         .catch((e) => openNotification(e, 'topRight'))
