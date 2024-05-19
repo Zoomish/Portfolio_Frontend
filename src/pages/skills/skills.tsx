@@ -26,8 +26,8 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
-          loop={true}
           initialSlide={1}
+          loop={true}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -50,7 +50,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
               slidesPerView: 5
             }
           }}
-          className='w-full h-40 flex items-center justify-center'
+          className='w-full h-20 md:h-40 flex items-center justify-center mb-40'
         >
           {skills.map((skill: TSkill, index) => {
             return (
@@ -58,11 +58,11 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                 key={index}
                 className='flex justify-center items-center flex-col '
               >
-                <div className='flex justify-center items-center flex-col w-40 h-40'>
+                <div className='flex justify-center items-center flex-col w-20 h-20 md:w-40 md:h-40'>
                   <img
                     src={skill.image}
                     alt={skill.title}
-                    className='w-20 h-20'
+                    className='w-10 h-10 md:w-20 md:h-20'
                   />
                   <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
@@ -73,12 +73,11 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
+          initialSlide={6}
           loop={true}
-          initialSlide={7}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
-            reverseDirection: true,
             disableOnInteraction: false
           }}
           breakpoints={{
@@ -98,7 +97,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
               slidesPerView: 5
             }
           }}
-          className='w-full h-40 flex items-center justify-center'
+          className='w-full h-20 md:h-40 flex items-center justify-center mb-40'
         >
           {skills.map((skill: TSkill, index) => {
             return (
@@ -106,11 +105,11 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                 key={index}
                 className='flex justify-center items-center flex-col '
               >
-                <div className='flex justify-center items-center flex-col w-40 h-40'>
+                <div className='flex justify-center items-center flex-col w-20 h-20 md:w-40 md:h-40'>
                   <img
                     src={skill.image}
                     alt={skill.title}
-                    className='w-20 h-20'
+                    className='w-10 h-10 md:w-20 md:h-20'
                   />
                   <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
@@ -145,7 +144,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
               slidesPerView: 5
             }
           }}
-          className='w-full h-40 flex items-center justify-center mb-40'
+          className='w-full h-20 md:h-40 flex items-center justify-center mb-40'
         >
           {skills.map((skill: TSkill, index) => {
             return (
@@ -153,11 +152,11 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                 key={index}
                 className='flex justify-center items-center flex-col '
               >
-                <div className='flex justify-center items-center flex-col w-40 h-40'>
+                <div className='flex justify-center items-center flex-col w-20 h-20 md:w-40 md:h-40'>
                   <img
                     src={skill.image}
                     alt={skill.title}
-                    className='w-20 h-20'
+                    className='w-10 h-10 md:w-20 md:h-20'
                   />
                   <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
