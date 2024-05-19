@@ -78,6 +78,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
+            reverseDirection: true,
             disableOnInteraction: false
           }}
           breakpoints={{
