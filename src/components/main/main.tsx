@@ -39,6 +39,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   const { openNotification } = useContext(NotificationContext)
   const [user, setUser] = useState<TUser>()
   const [dark, setDark] = useState<boolean>(false)
+  const [width, setWidth] = useState<boolean>(false)
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
   )
@@ -84,23 +85,28 @@ const Main: FC<IMain> = ({ pathRest }) => {
   let flag = false
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', function resizeHandler() {
-      if (window.innerWidth < 1024 && !flag) {
+      if (window.innerWidth < 768 && !flag) {
         setCollapse(true)
+        setWidth(true)
         flag = true
-      } else if (window.innerWidth >= 1024 && flag) {
+      } else if (window.innerWidth >= 768 && flag) {
         setCollapse(false)
+        setWidth(false)
         flag = false
       }
     })
   }
   useEffect(() => {
     setDark(localStorage.getItem('dark') === 'true')
-    window.innerWidth <= 1024 ? setCollapse(true) : setCollapse(false)
+    window.innerWidth <= 768 ? setCollapse(true) : setCollapse(false)
+    window.innerWidth <= 768 ? setWidth(true) : setWidth(false)
   }, [])
 
   const handleToggle = (event: any): void => {
     event.preventDefault()
-    collapse ? setCollapse(false) : setCollapse(true)
+    if (!width) {
+      collapse ? setCollapse(false) : setCollapse(true)
+    }
   }
 
   function handleClickFullScreen(): void {
