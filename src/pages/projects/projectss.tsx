@@ -19,7 +19,7 @@ const Projects: FC<IMenu> = ({ projects, dark, t }) => {
   }, [])
   return (
     <div className='flex flex-col justify-center  w-full h-full z-10'>
-      <p className='text-3xl text-center mb-10'>{t('my_projects')}</p>
+      <p className='text-4xl text-center mb-10'>{t('my_projects')}</p>
       <div className='flex justify-center flex-wrap w-full h-full gap-2 relative'>
         {projects.map((project, index) => (
           <ProjectView key={index} dark={dark} project={project}></ProjectView>
