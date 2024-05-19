@@ -54,13 +54,15 @@ const Main: FC<IMain> = ({ pathRest }) => {
 
   React.useEffect(() => {
     const savedUser = localStorage.getItem('user')
-    if (savedUser) {
+    const deleteTime = localStorage.getItem('deleteTime')
+    if (savedUser && deleteTime && +new Date() >= parseInt(deleteTime)) {
       setUser(JSON.parse(savedUser))
     } else {
       userApi
         .getAllUsers()
         .then((res: TUser) => {
           setUser(res)
+          localStorage.setItem('deleteTime', String(+new Date() + 3600 * 1000))
           localStorage.setItem('user', JSON.stringify(res))
         })
         .catch((e) => openNotification(e, 'topRight'))
