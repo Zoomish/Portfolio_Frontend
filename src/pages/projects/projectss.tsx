@@ -22,7 +22,7 @@ const Projects: FC<IMenu> = ({ projects, dark }) => {
       <p className='text-3xl text-center mb-10'>Мои проекты</p>
       <div className='flex justify-center flex-wrap w-full h-full gap-2 relative'>
         {projects.map((project, index) => (
-          <ProjectView key={index} project={project}></ProjectView>
+          <ProjectView key={index} dark={dark} project={project}></ProjectView>
         ))}
       </div>
     </div>

@@ -204,12 +204,12 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </div>
             </Header>
             <Content
-              className='flex flex-col relative'
+              className='flex flex-col relative mb-5'
               style={{
                 marginTop: 24,
                 padding: 0,
                 paddingBottom: 0,
-                minHeight: 'calc(100vh - 115px)',
+                minHeight: 'calc(100vh - 135px)',
                 ...color
               }}
             >
@@ -300,7 +300,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
           </div>
         </Layout>
         <Footer style={{ ...color, paddingBottom: '2px' }}>
-          <div className='border-t flex justify-center'>
+          <div className='border-t flex justify-center text-center'>
             Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
             reserved.
           </div>

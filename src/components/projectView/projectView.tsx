@@ -5,8 +5,9 @@ import { useHistory, useLocation } from 'react-router'
 
 interface IProject {
   project: TProject
+  dark: boolean
 }
-const ProjectView: FC<IProject> = ({ project }) => {
+const ProjectView: FC<IProject> = ({ project, dark }) => {
   const history = useHistory()
   const location = useLocation()
   const getProject = (): void => {
@@ -14,7 +15,7 @@ const ProjectView: FC<IProject> = ({ project }) => {
   }
   return (
     <div
-      className='flex flex-col border w-60 h-fit rounded cursor-pointer'
+      className={`flex flex-col border w-60 h-fit rounded cursor-pointer ${dark ? '' : 'bg-white'}`}
       onClick={getProject}
     >
       <img
