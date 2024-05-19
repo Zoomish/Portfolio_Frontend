@@ -195,14 +195,16 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   ''
                 )}
               </div>
-              {React.createElement(
-                collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
-                {
-                  className: 'trigger z-10',
-                  onClick: handleToggle,
-                  style: color
-                }
-              )}
+              {!width
+                ? React.createElement(
+                    collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
+                    {
+                      className: 'trigger z-10',
+                      onClick: handleToggle,
+                      style: color
+                    }
+                  )
+                : ''}
               <ChoiseLanguage
                 dark={dark}
                 style={color}
