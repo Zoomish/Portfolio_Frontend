@@ -248,9 +248,14 @@
   "password-do-not-match": "Password mismatch",
   "menu-uploaded": "Menu imported successfully",
   "main": "Home",
-  "contacts": "Contact with me",
+  "contacts": "Contacts",
+  "my_contacts": "My contacts",
   "projects": "Projects",
   "title": "Title",
   "tehnologies": "Technologies",
-  "overview": "Overview"
+  "overview": "Overview",
+  "repository": "Repository",
+  "my_projects": "My projects",
+  "skills": "Skills",
+  "my_skills": "My skills"
 }

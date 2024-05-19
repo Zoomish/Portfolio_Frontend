@@ -248,9 +248,14 @@
   "password-do-not-match": "Пароли не совпадают",
   "menu-uploaded": "Меню успешно импортировано",
   "main": "Главная",
-  "contacts": "Связаться со мной",
+  "contacts": "Контакты",
+  "my_contacts": "Мои контакты",
   "projects": "Проекты",
   "title": "Название",
   "tehnologies": "Технологии",
-  "overview": "Обзор"
+  "overview": "Обзор",
+  "repository": "Репозиторий",
+  "my_projects": "Мои проекты",
+  "skills": "Навыки",
+  "my_skills": "Мои навыки"
 }

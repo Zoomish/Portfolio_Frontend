@@ -248,9 +248,14 @@
   "password-do-not-match": "Құпия сөз сәйкес келмеді",
   "menu-uploaded": "Мәзір сәтті импортталды",
   "main": "Басты",
-  "contacts": "Менімен байланысыңыз",
+  "contacts": "Контактілер",
+  "my_contacts": "Менің контактілерім",
   "projects": "Жобаларым",
   "title": "Аты",
   "tehnologies": "Технологиялар",
-  "overview": "шолу"
+  "overview": "шолу",
+  "repository": "Репозиторий",
+  "my_projects": "Менің жобаларым",
+  "skills": "Дағдылар",
+  "my_skills": "Менің дағдыларым"
 }

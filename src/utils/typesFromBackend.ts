@@ -12,7 +12,7 @@ export interface TUser {
   image: string
   expirience: string
   work: TCity
-  skills: string
+  skills: TSkill[]
   portfolio: string
   projects: TProject[]
 }
@@ -24,8 +24,14 @@ export interface TProject {
   email: string
   image: string
   tags: string
-  repository: TCity
+  repository: string
   live: string
+}
+
+export interface TSkill {
+  id: string
+  title: string
+  image: string
 }
 export interface TOrder {
   _id: string

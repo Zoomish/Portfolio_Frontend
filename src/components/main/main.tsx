@@ -17,8 +17,7 @@ import i18n from '../i18n/i18n'
 import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
 import Project from '../../pages/project/project'
-import Admins from '../../pages/admins/admins'
-import Admin from '../../pages/admin/admin'
+import Contact from '../../pages/contact/contact'
 import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
@@ -29,6 +28,7 @@ import Grass from '../../assets/images/realistic_banner_with_grass.png'
 import Losa from '../../assets/images/leaf212.png'
 import Up from '../../assets/images/up.png'
 import Projects from '../../pages/projects/projectss'
+import Skill from '../../pages/skills/skills'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -204,22 +204,16 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </div>
             </Header>
             <Content
-              className='flex flex-col relative'
+              className='flex flex-col relative mb-5'
               style={{
                 marginTop: 24,
                 padding: 0,
                 paddingBottom: 0,
-                minHeight: 'calc(100vh - 115px)',
+                minHeight: 'calc(100vh - 135px)',
                 ...color
               }}
             >
               <Switch>
-                <Route path={`/:${pathRest}/admins`} exact>
-                  <Admins pathRest={pathRest} t={t} language={language} />
-                </Route>
-                <Route path={`/:${pathRest}/admin/:adminId`} exact>
-                  <Admin pathRest={pathRest} t={t} />
-                </Route>
                 <Route path={`/:${pathRest}/home`} exact>
                   {user ? (
                     <Home
@@ -249,6 +243,16 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 <Route path={`/:${pathRest}/projects/:projectId`} exact>
                   {user?.projects ? (
                     <Project t={t} projects={user?.projects} />
+                  ) : (
+                    <></>
+                  )}
+                </Route>
+                <Route path={`/:${pathRest}/contact`} exact>
+                  <Contact pathRest={pathRest} t={t} language={language} />
+                </Route>
+                <Route path={`/:${pathRest}/skills`} exact>
+                  {user?.skills ? (
+                    <Skill skills={user.skills} t={t} language={language} />
                   ) : (
                     <></>
                   )}
@@ -300,7 +304,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
           </div>
         </Layout>
         <Footer style={{ ...color, paddingBottom: '2px' }}>
-          <div className='border-t flex justify-center'>
+          <div className='border-t flex justify-center text-center'>
             Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
             reserved.
           </div>

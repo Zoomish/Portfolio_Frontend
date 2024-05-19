@@ -3,7 +3,8 @@ import { Menu } from 'antd'
 import {
   UserOutlined,
   ContactsOutlined,
-  DatabaseOutlined
+  DatabaseOutlined,
+  RadarChartOutlined
 } from '@ant-design/icons'
 import { useHistory } from 'react-router'
 
@@ -23,12 +24,18 @@ const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
     history.push(`/${pathRest}/projects`)
   }
   const handleAdminsClick = (): void => {
-    history.push(`/${pathRest}/admins`)
+    history.push(`/${pathRest}/contact`)
+  }
+  const handleSkillsClick = (): void => {
+    history.push(`/${pathRest}/skills`)
   }
 
   return (
     <>
-      <div className='h-8 m-4 text-xl text-center relative z-10 rounded' style={style}>
+      <div
+        className='h-8 m-4 text-xl text-center relative z-10 rounded'
+        style={style}
+      >
         {!collapse ? (
           <p>
             Zoomish <span className='font-medium'>Portfolio</span>
@@ -52,7 +59,11 @@ const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
           <DatabaseOutlined />
           <span>{t('projects')}</span>
         </Menu.Item>
-        <Menu.Item key='3' onClick={handleAdminsClick}>
+        <Menu.Item key='43' onClick={handleSkillsClick}>
+          <RadarChartOutlined />
+          <span>{t('skills')}</span>
+        </Menu.Item>
+        <Menu.Item key='4' onClick={handleAdminsClick}>
           <ContactsOutlined />
           <span>{t('contacts')}</span>
         </Menu.Item>
