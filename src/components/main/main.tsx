@@ -53,12 +53,18 @@ const Main: FC<IMain> = ({ pathRest }) => {
   }
 
   React.useEffect(() => {
-    userApi
-      .getAllUsers()
-      .then((res: TUser) => {
-        setUser(res)
-      })
-      .catch((e) => openNotification(e, 'topRight'))
+    const savedUser = localStorage.getItem('user')
+    if (savedUser) {
+      setUser(JSON.parse(savedUser))
+    } else {
+      userApi
+        .getAllUsers()
+        .then((res: TUser) => {
+          setUser(res)
+          localStorage.setItem('user', JSON.stringify(user))
+        })
+        .catch((e) => openNotification(e, 'topRight'))
+    }
   }, [])
 
   const changeDark = (): void => {
