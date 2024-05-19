@@ -18,7 +18,6 @@ import ChoiseLanguage from '../choise-language/choise-language'
 import Sidebar from '../sidebar/sidebar'
 import Project from '../../pages/project/project'
 import Admins from '../../pages/admins/admins'
-import Admin from '../../pages/admin/admin'
 import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
@@ -214,12 +213,6 @@ const Main: FC<IMain> = ({ pathRest }) => {
               }}
             >
               <Switch>
-                <Route path={`/:${pathRest}/admins`} exact>
-                  <Admins pathRest={pathRest} t={t} language={language} />
-                </Route>
-                <Route path={`/:${pathRest}/admin/:adminId`} exact>
-                  <Admin pathRest={pathRest} t={t} />
-                </Route>
                 <Route path={`/:${pathRest}/home`} exact>
                   {user ? (
                     <Home
@@ -252,6 +245,9 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   ) : (
                     <></>
                   )}
+                </Route>
+                <Route path={`/:${pathRest}/contact`} exact>
+                  <Admins pathRest={pathRest} t={t} language={language} />
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />

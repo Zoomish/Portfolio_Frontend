@@ -15,6 +15,8 @@ const Project: FC<IRest> = ({ t, projects }) => {
   const [project, setProject] = React.useState<TProject>()
   const location = useLocation()
   React.useEffect(() => {
+    const currentPath = location.pathname
+    window.localStorage.setItem('initialRoute', currentPath)
     setProject(projects[Number(location.pathname.split('/')[3]) - 1])
   }, [location.pathname])
   return (

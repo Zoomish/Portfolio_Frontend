@@ -23,7 +23,7 @@ const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
     history.push(`/${pathRest}/projects`)
   }
   const handleAdminsClick = (): void => {
-    history.push(`/${pathRest}/admins`)
+    history.push(`/${pathRest}/contact`)
   }
 
   return (
