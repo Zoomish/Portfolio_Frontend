@@ -33,6 +33,23 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
             delay: 2000,
             disableOnInteraction: false
           }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1
+            },
+            490: {
+              slidesPerView: 2
+            },
+            510: {
+              slidesPerView: 3
+            },
+            640: {
+              slidesPerView: 4
+            },
+            730: {
+              slidesPerView: 5
+            }
+          }}
           className='w-full h-40 flex items-center justify-center'
         >
           {skills.map((skill: TSkill, index) => {
@@ -64,6 +81,23 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
             reverseDirection: true,
             disableOnInteraction: false
           }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1
+            },
+            490: {
+              slidesPerView: 2
+            },
+            510: {
+              slidesPerView: 3
+            },
+            640: {
+              slidesPerView: 4
+            },
+            730: {
+              slidesPerView: 5
+            }
+          }}
           className='w-full h-40 flex items-center justify-center'
         >
           {skills.map((skill: TSkill, index) => {
@@ -93,6 +127,23 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           autoplay={{
             delay: 2000,
             disableOnInteraction: false
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1
+            },
+            490: {
+              slidesPerView: 2
+            },
+            510: {
+              slidesPerView: 3
+            },
+            640: {
+              slidesPerView: 4
+            },
+            730: {
+              slidesPerView: 5
+            }
           }}
           className='w-full h-40 flex items-center justify-center mb-40'
         >
