@@ -280,7 +280,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </Switch>
               <FloatButton
                 icon={<RobotOutlined />}
-                href={user?.tg_bot}
+                href={`https://t.me/${user ? user?.tg_bot : ''}`}
                 target='_blank'
                 type='primary'
                 className='w-12 h-12 flex justify-center'
