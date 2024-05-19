@@ -277,23 +277,23 @@ const Main: FC<IMain> = ({ pathRest }) => {
               <>
                 <img
                   src={Grass}
-                  className={'object-contain w-full max-h-40 min-h-20'}
+                  className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
                   src={Grass}
-                  className={'object-contain w-full max-h-40 min-h-20'}
+                  className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
                   src={Grass}
-                  className={'object-contain w-full max-h-40 min-h-20'}
+                  className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
                   src={Grass}
-                  className={'object-contain w-full max-h-40 min-h-20'}
+                  className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
                   src={Grass}
-                  className={'object-contain w-full max-h-40 min-h-20'}
+                  className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
               </>
             )}
