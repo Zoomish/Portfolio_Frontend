@@ -21,13 +21,13 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
   }, [])
   return (
     <div className='flex flex-col justify-center  w-full h-full z-10'>
-      <p className='text-4xl text-center mb-10'>{t('my_skills')}</p>
+      <p className='md:text-4xl text-2xl text-center mb-10'>{t('my_skills')}</p>
       <div className='flex justify-center items-center flex-wrap w-full h-full gap-2 relative'>
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
+          initialSlide={1}
           loop={true}
-          initialSlide={Math.floor(Math.random() * skills.length)}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -64,7 +64,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                     alt={skill.title}
                     className='w-20 h-20'
                   />
-                  <p className='text-2xl'>{skill.title}</p>
+                  <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
               </SwiperSlide>
             )
@@ -73,8 +73,8 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
+          initialSlide={6}
           loop={true}
-          initialSlide={Math.floor(Math.random() * skills.length)}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -112,7 +112,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                     alt={skill.title}
                     className='w-20 h-20'
                   />
-                  <p className='text-2xl'>{skill.title}</p>
+                  <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
               </SwiperSlide>
             )
@@ -121,7 +121,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
-          initialSlide={Math.floor(Math.random() * skills.length)}
+          initialSlide={12}
           loop={true}
           modules={[FreeMode, Autoplay]}
           autoplay={{
@@ -159,7 +159,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
                     alt={skill.title}
                     className='w-20 h-20'
                   />
-                  <p className='text-2xl'>{skill.title}</p>
+                  <p className='md:text-2xl text-lg'>{skill.title}</p>
                 </div>
               </SwiperSlide>
             )
