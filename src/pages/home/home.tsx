@@ -78,7 +78,7 @@ const Home: FC<IMenu> = ({ user, t }) => {
         icon={<DownloadOutlined />}
         size={'large'}
       >
-        Download CV
+        {t('download_cv')}
       </Button>
     </div>
   )
