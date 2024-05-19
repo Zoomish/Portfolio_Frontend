@@ -27,7 +27,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           slidesPerView={5}
           spaceBetween={30}
           loop={true}
-          initialSlide={Math.floor(Math.random() * skills.length)}
+          initialSlide={1}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -74,7 +74,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
           slidesPerView={5}
           spaceBetween={30}
           loop={true}
-          initialSlide={Math.floor(Math.random() * skills.length)}
+          initialSlide={5}
           modules={[FreeMode, Autoplay]}
           autoplay={{
             delay: 2000,
@@ -121,7 +121,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
         <Swiper
           slidesPerView={5}
           spaceBetween={30}
-          initialSlide={Math.floor(Math.random() * skills.length)}
+          initialSlide={3}
           loop={true}
           modules={[FreeMode, Autoplay]}
           autoplay={{
