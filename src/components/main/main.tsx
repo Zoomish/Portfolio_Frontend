@@ -55,7 +55,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   React.useEffect(() => {
     const savedUser = localStorage.getItem('user')
     const deleteTime = localStorage.getItem('deleteTime')
-    if (savedUser && deleteTime && +new Date() >= parseInt(deleteTime)) {
+    if (savedUser && deleteTime && +new Date() - parseInt(deleteTime) < 0) {
       setUser(JSON.parse(savedUser))
     } else {
       userApi
