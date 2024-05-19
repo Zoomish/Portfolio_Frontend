@@ -16,5 +16,5 @@
   background-color: #fff !important;
 }
 .swiper-slide{
-  display: flex;
+  display: flex !important;
 }
