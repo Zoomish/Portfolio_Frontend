@@ -38,7 +38,7 @@ const Skill: FC<ISkill> = ({ t, skills }) => {
               >
                 <div className='flex justify-center items-center flex-col w-40 h-40'>
                   <img src={skill.image} alt={skill.title} />
-                  <p>{skill.title}</p>
+                  <p className='text-2xl'>{skill.title}</p>
                 </div>
               </SwiperSlide>
             )
