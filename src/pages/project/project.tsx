@@ -25,13 +25,13 @@ const Project: FC<IRest> = ({ t, projects }) => {
           onError={(e) => (e.currentTarget.src = ImageNoPhoto)}
           className='w-[450px] h-60 object-contain'
         ></img>
-        <p className='text-3xl'>
+        <p className='text-3xl text-center'>
           {t('title')}: {project?.title}
         </p>
-        <p className='text-xl'>
+        <p className='text-xl text-center'>
           {t('description')}: {project?.description}
         </p>
-        <p className='text-xl'>
+        <p className='text-xl text-center'>
           {t('tehnologies')}:{' '}
           {project?.tags
             .replaceAll(' ', '')
@@ -53,7 +53,7 @@ const Project: FC<IRest> = ({ t, projects }) => {
             icon={<GithubOutlined />}
             className='flex justify-center items-center bg-gradient-to-r from-emerald-500 from-10% via-sky-500 via-30% to-indigo-500 to-90%'
           >
-            {t('overview')}
+            {t('repository')}
           </Button>
         </div>
       </div>
