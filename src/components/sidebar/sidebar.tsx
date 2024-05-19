@@ -59,13 +59,13 @@ const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
           <DatabaseOutlined />
           <span>{t('projects')}</span>
         </Menu.Item>
-        <Menu.Item key='3' onClick={handleAdminsClick}>
-          <ContactsOutlined />
-          <span>{t('contacts')}</span>
-        </Menu.Item>
-        <Menu.Item key='4' onClick={handleSkillsClick}>
+        <Menu.Item key='43' onClick={handleSkillsClick}>
           <RadarChartOutlined />
           <span>{t('skills')}</span>
+        </Menu.Item>
+        <Menu.Item key='4' onClick={handleAdminsClick}>
+          <ContactsOutlined />
+          <span>{t('contacts')}</span>
         </Menu.Item>
       </Menu>
     </>
