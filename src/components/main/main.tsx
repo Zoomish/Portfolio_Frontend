@@ -22,7 +22,6 @@ import Home from '../../pages/home/home'
 import * as userApi from '../../utils/api/user-api'
 import { NotificationContext } from '../../components/notification-provider/notification-provider'
 import ChangeDark from '../change-dark-mode/change-dark-mode'
-import { TELEGRAM_BOT } from '../../utils/const'
 import HeaderPhoto from '../../assets/images/header-bg.png'
 import Grass from '../../assets/images/realistic_banner_with_grass.png'
 import Losa from '../../assets/images/leaf212.png'
@@ -226,17 +225,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             >
               <Switch>
                 <Route path={`/:${pathRest}/home`} exact>
-                  {user ? (
-                    <Home
-                      dark={dark}
-                      pathRest={pathRest}
-                      t={t}
-                      language={language}
-                      user={user}
-                    />
-                  ) : (
-                    <></>
-                  )}
+                  {user ? <Home t={t} user={user} /> : <></>}
                 </Route>
                 <Route path={`/:${pathRest}/projects`} exact>
                   {user?.projects ? (
@@ -259,7 +248,16 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/contact`} exact>
-                  <Contact pathRest={pathRest} t={t} language={language} />
+                  {user ? (
+                    <Contact
+                      pathRest={pathRest}
+                      user={user}
+                      t={t}
+                      language={language}
+                    />
+                  ) : (
+                    <></>
+                  )}
                 </Route>
                 <Route path={`/:${pathRest}/skills`} exact>
                   {user?.skills ? (
@@ -274,7 +272,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
               </Switch>
               <FloatButton
                 icon={<RobotOutlined />}
-                href={TELEGRAM_BOT}
+                href={user?.tg_bot}
                 target='_blank'
                 type='primary'
                 className='w-12 h-12 flex justify-center'

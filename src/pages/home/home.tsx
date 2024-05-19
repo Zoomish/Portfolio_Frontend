@@ -1,18 +1,15 @@
 import React, { FC } from 'react'
-import { ECountry, TUser } from '../../utils/typesFromBackend'
+import { TUser } from '../../utils/typesFromBackend'
 import { useLocation } from 'react-router-dom'
 import { Button } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
 
 interface IMenu {
-  pathRest: string
   t: (arg0: string) => string
-  language: ECountry
   user: TUser
-  dark: boolean
 }
 
-const Home: FC<IMenu> = ({ user, dark }) => {
+const Home: FC<IMenu> = ({ user, t }) => {
   const location = useLocation()
 
   React.useEffect(() => {
@@ -55,16 +52,16 @@ const Home: FC<IMenu> = ({ user, dark }) => {
   const work = user.work.replaceAll(' ', '').split(',')
   return (
     <div className='flex flex-col justify-center items-center w-full h-full relative mb-60 z-10'>
-      <p className='text-4xl text-center'>Привет, меня зовут {user?.name}</p>
+      <p className='text-4xl text-center'>{t('hi')} {user?.name}</p>
       <span className='text-3xl text-center text-nowrap bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mb-5 mt-2 px-2 py-1 rounded text-white'>
         Frontend Developer
       </span>
-      <p className='text-2xl text-center mb-1'>Мой опыт работы</p>
+      <p className='text-2xl text-center mb-1'>{t('expirience')}</p>
       <span className='mb-6 text-2xl text-nowrap bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded text-white px-2 py-1'>
         {Math.floor(expirience / 12)} {age(Math.floor(expirience / 12))}&nbsp;
         {expirience % 12} {month(expirience % 12)}
       </span>
-      <p className='text-2xl text-center'>Работаю в</p>
+      <p className='text-2xl text-center'>{t('work_in')}</p>
       <a
         target='_blank'
         rel='noreferrer'

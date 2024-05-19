@@ -21,6 +21,7 @@
   "generation-qr": "Generation qr code",
   "change-colors": "Change colors",
   "telegram-bot": "Telegram bot",
+  "telegram": "Telegram",
   "manual": "Manual",
   "back-menu": "Go back to the menu",
   "quit": "Quit",
@@ -257,5 +258,8 @@
   "repository": "Repository",
   "my_projects": "My projects",
   "skills": "Skills",
-  "my_skills": "My skills"
+  "my_skills": "My skills",
+  "hi": "Hi, my name is",
+  "expirience": "My work experience is",
+  "work_in": "I work for"
 }

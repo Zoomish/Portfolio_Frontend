@@ -9,6 +9,9 @@ export interface TUser {
   skills: TSkill[]
   portfolio: string
   projects: TProject[]
+  phone: string
+  tg: string
+  tg_bot: string
 }
 
 export interface TProject {

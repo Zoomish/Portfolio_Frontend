@@ -15,7 +15,9 @@ const ProjectView: FC<IProject> = ({ project, dark }) => {
   }
   return (
     <div
-      className={`flex flex-col border w-60 h-fit rounded cursor-pointer ${dark ? '' : 'bg-white'}`}
+      className={`flex flex-col border w-60 h-64 rounded cursor-pointer ${
+        dark ? '' : 'bg-white'
+      }`}
       onClick={getProject}
     >
       <img
@@ -23,16 +25,18 @@ const ProjectView: FC<IProject> = ({ project, dark }) => {
         className='w-full h-40 object-fill'
         onError={(e) => (e.currentTarget.src = ImageNoPhoto)}
       />
-      <p className='text-center text-xl font-medium'>{project.title}</p>
-      <p className='text-center text-sm mt-1'>
-        {project.tags
-          .replaceAll(' ', '')
-          .split(',')
-          .map((tag) => {
-            return tag + ' '
-          })
-          .join(' ')}
-      </p>
+      <div className='flex flex-col justify-start h-full'>
+        <p className='text-center text-xl font-medium mt-1'>{project.title}</p>
+        <p className='text-center text-sm mt-3'>
+          {project.tags
+            .replaceAll(' ', '')
+            .split(',')
+            .map((tag) => {
+              return tag + ' '
+            })
+            .join(' ')}
+        </p>
+      </div>
     </div>
   )
 }
