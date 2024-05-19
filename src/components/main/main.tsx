@@ -28,6 +28,7 @@ import Grass from '../../assets/images/realistic_banner_with_grass.png'
 import Losa from '../../assets/images/leaf212.png'
 import Up from '../../assets/images/up.png'
 import Projects from '../../pages/projects/projectss'
+import Skill from '../../pages/skills/skills'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -248,6 +249,9 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 </Route>
                 <Route path={`/:${pathRest}/contact`} exact>
                   <Contact pathRest={pathRest} t={t} language={language} />
+                </Route>
+                <Route path={`/:${pathRest}/skills`} exact>
+                  <Skill pathRest={pathRest} t={t} language={language} />
                 </Route>
                 <Route path='*'>
                   <NotFound t={t} />
