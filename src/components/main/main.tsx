@@ -259,7 +259,11 @@ const Main: FC<IMain> = ({ pathRest }) => {
                   )}
                 </Route>
                 <Route path={`/:${pathRest}/contact`} exact>
-                  <Contact pathRest={pathRest} t={t} language={language} />
+                  {user ? (
+                    <Contact pathRest={pathRest} user={user} t={t} language={language} />
+                  ) : (
+                    <></>
+                  )}
                 </Route>
                 <Route path={`/:${pathRest}/skills`} exact>
                   {user?.skills ? (
