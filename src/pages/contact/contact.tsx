@@ -19,10 +19,10 @@ const Contact: FC<IContact> = ({ pathRest, t }) => {
         {t('my_contacts')}
       </p>
       <div className='flex justify-center items-center flex-wrap w-full h-full relative mb-40'>
-        <div className='sm:w-1/2 w-full h-40'>F</div>
-        <div className='sm:w-1/2 w-full h-40'>F</div>
-        <div className='sm:w-1/2 w-full h-40'>F</div>
-        <div className='sm:w-1/2 w-full h-40'>F</div>
+        <div className='sm:w-1/2 w-full h-40 flex justify-center'><p>{t('email-address')}</p></div>
+        <div className='sm:w-1/2 w-full h-40 flex justify-center'>F</div>
+        <div className='sm:w-1/2 w-full h-40 flex justify-center'>F</div>
+        <div className='sm:w-1/2 w-full h-40 flex justify-center'>F</div>
       </div>
     </div>
   )
