@@ -28,6 +28,7 @@ import Losa from '../../assets/images/leaf212.png'
 import Up from '../../assets/images/up.png'
 import Projects from '../../pages/projects/projectss'
 import Skill from '../../pages/skills/skills'
+import Loading from '../loading/loading'
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -39,6 +40,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   const { openNotification } = useContext(NotificationContext)
   const [user, setUser] = useState<TUser>()
   const [dark, setDark] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
   const [width, setWidth] = useState<boolean>(false)
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
@@ -61,6 +63,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
       userApi
         .getAllUsers()
         .then((res: TUser) => {
+          setLoading(false)
           setUser(res)
           localStorage.setItem(
             'deleteTime',
@@ -230,53 +233,57 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 ...color
               }}
             >
-              <Switch>
-                <Route path={`/:${pathRest}/home`} exact>
-                  {user ? <Home t={t} user={user} /> : <></>}
-                </Route>
-                <Route path={`/:${pathRest}/projects`} exact>
-                  {user?.projects ? (
-                    <Projects
-                      dark={dark}
-                      pathRest={pathRest}
-                      t={t}
-                      language={language}
-                      projects={user.projects}
-                    />
-                  ) : (
-                    <></>
-                  )}
-                </Route>
-                <Route path={`/:${pathRest}/projects/:projectId`} exact>
-                  {user?.projects ? (
-                    <Project t={t} projects={user?.projects} />
-                  ) : (
-                    <></>
-                  )}
-                </Route>
-                <Route path={`/:${pathRest}/contact`} exact>
-                  {user ? (
-                    <Contact
-                      pathRest={pathRest}
-                      user={user}
-                      t={t}
-                      language={language}
-                    />
-                  ) : (
-                    <></>
-                  )}
-                </Route>
-                <Route path={`/:${pathRest}/skills`} exact>
-                  {user?.skills ? (
-                    <Skill skills={user.skills} t={t} language={language} />
-                  ) : (
-                    <></>
-                  )}
-                </Route>
-                <Route path='*'>
-                  <NotFound t={t} />
-                </Route>
-              </Switch>
+              {!loading ? (
+                <Switch>
+                  <Route path={`/:${pathRest}/home`} exact>
+                    {user ? <Home t={t} user={user} /> : <></>}
+                  </Route>
+                  <Route path={`/:${pathRest}/projects`} exact>
+                    {user?.projects ? (
+                      <Projects
+                        dark={dark}
+                        pathRest={pathRest}
+                        t={t}
+                        language={language}
+                        projects={user.projects}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </Route>
+                  <Route path={`/:${pathRest}/projects/:projectId`} exact>
+                    {user?.projects ? (
+                      <Project t={t} projects={user?.projects} />
+                    ) : (
+                      <></>
+                    )}
+                  </Route>
+                  <Route path={`/:${pathRest}/contact`} exact>
+                    {user ? (
+                      <Contact
+                        pathRest={pathRest}
+                        user={user}
+                        t={t}
+                        language={language}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </Route>
+                  <Route path={`/:${pathRest}/skills`} exact>
+                    {user?.skills ? (
+                      <Skill skills={user.skills} t={t} language={language} />
+                    ) : (
+                      <></>
+                    )}
+                  </Route>
+                  <Route path='*'>
+                    <NotFound t={t} />
+                  </Route>
+                </Switch>
+              ) : (
+                <Loading />
+              )}
               <FloatButton
                 icon={<RobotOutlined />}
                 href={`https://t.me/${user ? user?.tg_bot : ''}`}
