@@ -66,7 +66,6 @@ const Main: FC<IMain> = ({ pathRest }) => {
             'deleteTime',
             String(+new Date() + 3600 * 1000 * 24)
           )
-          localStorage.setItem('user', JSON.stringify(res))
         })
         .catch((e) => openNotification(e, 'topRight'))
     }
