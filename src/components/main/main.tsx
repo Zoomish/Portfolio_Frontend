@@ -40,7 +40,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
   const { openNotification } = useContext(NotificationContext)
   const [user, setUser] = useState<TUser>()
   const [dark, setDark] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(false)
   const [width, setWidth] = useState<boolean>(false)
   const [language, setLanguage] = useState<ECountry>(
     (localStorage.getItem('language') as ECountry) ?? ECountry.RU
@@ -60,6 +60,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
     if (savedUser && deleteTime && +new Date() - parseInt(deleteTime) < 0) {
       setUser(JSON.parse(savedUser))
     } else {
+      setLoading(true)
       userApi
         .getAllUsers()
         .then((res: TUser) => {
