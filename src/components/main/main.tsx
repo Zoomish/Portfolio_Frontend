@@ -146,19 +146,43 @@ const Main: FC<IMain> = ({ pathRest }) => {
             <div className='absolute flex flex-col justify-start items-end w-full h-full overflow-clip top-0 left-1'>
               {!dark ? (
                 <>
-                  <img className='w-20' src={Losa}></img>
-                  <img className='w-20 absolute top-40' src={Losa}></img>
+                  <img className='w-20' alt='Grass background' src={Losa}></img>
+                  <img
+                    className='w-20 absolute top-40'
+                    alt='Grass background'
+                    src={Losa}
+                  ></img>
                   {collapse ? (
                     <>
-                      <img className='w-20 absolute top-80' src={Losa}></img>
-                      <img className='w-20 absolute top-96' src={Losa}></img>
-                      <img className='w-20 absolute bottom-20' src={Losa}></img>
+                      <img
+                        className='w-20 absolute top-80'
+                        alt='Grass background'
+                        src={Losa}
+                      ></img>
+                      <img
+                        className='w-20 absolute top-96'
+                        alt='Grass background'
+                        src={Losa}
+                      ></img>
+                      <img
+                        className='w-20 absolute bottom-20'
+                        alt='Grass background'
+                        src={Losa}
+                      ></img>
                     </>
                   ) : (
                     ''
                   )}
-                  <img className='w-20 absolute bottom-40' src={Losa}></img>
-                  <img className='w-20 absolute bottom-0' src={Losa}></img>
+                  <img
+                    className='w-20 absolute bottom-40'
+                    alt='Grass background'
+                    src={Losa}
+                  ></img>
+                  <img
+                    className='w-20 absolute bottom-0'
+                    alt='Grass background'
+                    src={Losa}
+                  ></img>
                 </>
               ) : (
                 ''
@@ -187,11 +211,20 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 {!dark ? (
                   <>
                     <img
+                      alt='Grass background'
                       className='mb-40 w-[817px] max-w-screen-2xl h-60'
                       src={Up}
                     ></img>
-                    <img className='mb-40 w-[817px] h-60' src={Up}></img>
-                    <img className='mb-40 w-[817px] h-60' src={Up}></img>
+                    <img
+                      className='mb-40 w-[817px] h-60'
+                      alt='Grass background'
+                      src={Up}
+                    ></img>
+                    <img
+                      className='mb-40 w-[817px] h-60'
+                      alt='Grass background'
+                      src={Up}
+                    ></img>
                   </>
                 ) : (
                   ''
@@ -293,7 +326,15 @@ const Main: FC<IMain> = ({ pathRest }) => {
                 style={{ right: 24 }}
               />
               <div className='absolute flex justify-center items-center w-full h-full overflow-clip'>
-                {dark ? <img className='mb-40' src={HeaderPhoto}></img> : ''}
+                {dark ? (
+                  <img
+                    className='mb-40'
+                    alt='Grass background'
+                    src={HeaderPhoto}
+                  ></img>
+                ) : (
+                  ''
+                )}
               </div>
             </Content>
           </Layout>
@@ -303,22 +344,27 @@ const Main: FC<IMain> = ({ pathRest }) => {
             ) : (
               <>
                 <img
+                  alt='Grass background'
                   src={Grass}
                   className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
+                  alt='Grass background'
                   src={Grass}
                   className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
+                  alt='Grass background'
                   src={Grass}
                   className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
+                  alt='Grass background'
                   src={Grass}
                   className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
                 <img
+                  alt='Grass background'
                   src={Grass}
                   className={'w-full max-w-screen-2xl max-h-40 min-h-20'}
                 />
@@ -326,7 +372,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             )}
           </div>
         </Layout>
-        <Footer style={{ ...color, paddingBottom: '2px' }}>
+        <Footer style={{ ...color, padding: 0, paddingBottom: '2px' }}>
           <div className='border-t flex justify-center text-center'>
             Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
             reserved.
