@@ -372,7 +372,7 @@ const Main: FC<IMain> = ({ pathRest }) => {
             )}
           </div>
         </Layout>
-        <Footer style={{ ...color, paddingBottom: '2px' }}>
+        <Footer style={{ ...color, padding: 0, paddingBottom: '2px' }}>
           <div className='border-t flex justify-center text-center'>
             Copyright &copy; {new Date().getFullYear()} Zoomish. All rights
             reserved.
