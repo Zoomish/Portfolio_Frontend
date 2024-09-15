@@ -25,15 +25,15 @@ const Home: FC<IMenu> = ({ user, t }) => {
     let txt
     let count = age % 100
     if (count >= 5 && count <= 20) {
-      txt = 'лет'
+      txt = t('years')
     } else {
       count = count % 10
       if (count === 1) {
-        txt = 'год'
+        txt = t('year')
       } else if (count >= 2 && count <= 4) {
-        txt = 'года'
+        txt = t('years1')
       } else {
-        txt = 'лет'
+        txt = t('months')
       }
     }
     return txt
