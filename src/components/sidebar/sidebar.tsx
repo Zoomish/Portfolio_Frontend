@@ -45,7 +45,7 @@ const Sidebar: FC<ISidebar> = ({ dark, collapse, style, pathRest, t }) => {
         )}
       </div>
       <Menu
-        theme='light'
+        theme={dark ? 'dark' : 'light'}
         mode='inline'
         style={dark ? style : {}}
         className='relative z-10 text-left bg-transparent'
