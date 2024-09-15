@@ -40,11 +40,11 @@ const Home: FC<IMenu> = ({ user, t }) => {
   }
   const month = (month: number): string => {
     if (month === 1) {
-      return 'месяц'
+      return t('month')
     } else if (month > 1 && month < 5) {
-      return 'месяца'
+      return t('month1')
     } else if (month > 4 || month === 0) {
-      return 'месяцев'
+      return t('months')
     } else {
       return ''
     }

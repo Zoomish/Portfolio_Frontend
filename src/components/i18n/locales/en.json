@@ -262,5 +262,8 @@
   "hi": "Hi, my name is",
   "expirience": "My work experience is",
   "work_in": "I work for",
-  "download_cv": "Download CV"
+  "download_cv": "Download CV",
+  "month": "month",
+  "months": "months",
+  "month1": "month"
 }
